@@ -1,0 +1,10 @@
+@use 'variables' as *;
+@use 'header';
+@use 'main';
+@use 'footer';
+@use 'headerBotton';
+
+body {
+  margin: 15px;
+  background-color: $background-color;
+}

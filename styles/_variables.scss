@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap');
+
+@mixin fontHeaderTop {
+  font: normal small-caps bold 16px/24px Roboto, Rubik;
+  text-decoration: underline;
+}
+
+$font-color: rgb(181, 182, 112);
+$background-color: white;
