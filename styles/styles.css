@@ -89,12 +89,13 @@ header .headerTop h4 {
   width: 250px;
   border-radius: 10px;
   font-size: 1rem;
-  background-color: rgb(18, 166, 85);
+  background-color: rgb(112, 166, 18);
   color: white;
+  border: none;
 }
 .carousel .carousel-info:hover {
   color: rgb(99, 66, 4);
-  background-color: rgb(86, 212, 143);
+  background-color: rgb(152, 215, 181);
 }
 
 .form-container {
