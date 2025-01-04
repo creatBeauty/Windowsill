@@ -8,8 +8,7 @@ export class Form {
   }
 
   init() {
-    // Инициализация EmailJS
-    emailjs.init('dYXYvYitA1K0SgEs8'); // Замените на ваш публичный ключ
+    emailjs.init('dYXYvYitA1K0SgEs8');
     this.setupEventListeners();
   }
 
@@ -36,36 +35,41 @@ export class Form {
     e.preventDefault();
     const submitBtn = this.form.querySelector('.submit-btn');
 
+    const templateParams = {
+      from_name: this.form.querySelector('#name').value,
+      phone_number: this.form.querySelector('#phone').value,
+      address: this.form.querySelector('#address').value,
+      wishes: this.form.querySelector('.wont').value,
+      message: `Новая заявка на замер от ${
+        this.form.querySelector('#name').value
+      }`,
+    };
+
     try {
       submitBtn.disabled = true;
       submitBtn.textContent = 'Отправка...';
 
-      // Отправка email через EmailJS
-      await emailjs.send(
-        'service_6i541ib', // ID вашего сервиса
-        'template_ryqxxtg', // ID вашего шаблона
-        this.getFormData()
+      const response = await emailjs.send(
+        'service_6i541ib',
+        'template_ryqxxtg',
+        templateParams
       );
 
-      alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
-      this.form.reset();
-      this.hideForm();
+      if (response.status === 200) {
+        alert(
+          'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.'
+        );
+        this.form.reset();
+        this.hideForm();
+      }
     } catch (error) {
-      console.error('FAILED...', error);
-      alert(`Ошибка при отправке: ${error.message}`);
+      console.error('Ошибка отправки:', error);
+      alert(
+        'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.'
+      );
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Отправить';
     }
-  }
-
-  getFormData() {
-    return {
-      name: this.form.querySelector('#name').value,
-      phone: this.form.querySelector('#phone').value,
-      address: this.form.querySelector('#address').value,
-      wishes: this.form.querySelector('.wont').value,
-      message: `Заявка на замер от ${this.form.querySelector('#name').value}`,
-    };
   }
 }
