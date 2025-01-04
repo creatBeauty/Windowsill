@@ -1,7 +1,7 @@
 export class Carousel {
   constructor() {
-    this.currentIndex = 0;
-    this.items = document.querySelectorAll('.carousel-item');
+    this.currentIndex = 0; //присваиваем свойство со значением 0 обьекту,к которому относиться контекст this
+    this.items = document.querySelectorAll('.carousel-item'); // this.items = document.querySelectorAll('.carousel-item');
     this.totalItems = this.items.length;
     this.init();
   }

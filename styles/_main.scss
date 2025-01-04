@@ -61,7 +61,9 @@
   }
   .carousel-info {
     position: absolute;
-    top: 90%;
+    left: 50%; // Добавляем горизонтальное центрирование
+    transform: translateX(-50%); // Центрируем кнопку
+    bottom: 20px; // Меняем top: 90% на bottom: 20px для более надежного позиционирования
     height: 40px;
     width: 250px;
     border-radius: 10px;
@@ -69,6 +71,8 @@
     background-color: rgb(112, 166, 18);
     color: white;
     border: none;
+    cursor: pointer; // Добавляем курсор-указатель
+    z-index: 10; // Добавляем z-index, чтобы кнопка была поверх карусели
   }
   .carousel-info:hover {
     color: rgb(99, 66, 4);
@@ -99,10 +103,38 @@
       position: relative;
       margin-bottom: 25px;
 
+      // Обычные метки для input полей
+      label {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        transition: 0.3s;
+      }
+
+      // Специальные стили для метки textarea
+      .wont-label {
+        position: static; // Изменено с absolute
+        display: block;
+        margin-bottom: 8px; // Добавляем отступ снизу
+        color: #333;
+        transform: none; // Убираем transform
+      }
+
+      .wont {
+        height: 100px;
+        width: 100%;
+        margin-top: 0; // Убираем верхний отступ
+        padding: 10px;
+        border: 1px solid #a49a9a;
+        border-radius: 5px;
+      }
+
       input {
         width: 100%;
         padding: 10px;
-        border: 1px solid #ddd;
+        border: 1px solid #a49a9a;
         border-radius: 5px;
         font-size: 16px;
 

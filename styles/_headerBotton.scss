@@ -6,6 +6,9 @@
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 20px;
+  .logo {
+    max-height: 100px;
+  }
   img {
     margin-left: 20px;
     max-width: 150px;
