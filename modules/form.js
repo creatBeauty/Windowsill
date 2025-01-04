@@ -8,6 +8,8 @@ export class Form {
   }
 
   init() {
+    // Инициализация EmailJS
+    emailjs.init('dYXYvYitA1K0SgEs8'); // Замените на ваш публичный ключ
     this.setupEventListeners();
   }
 
@@ -38,7 +40,12 @@ export class Form {
       submitBtn.disabled = true;
       submitBtn.textContent = 'Отправка...';
 
-      await this.emailService.sendEmail(this.getFormData());
+      // Отправка email через EmailJS
+      await emailjs.send(
+        'service_6i541ib', // ID вашего сервиса
+        'template_ryqxxtg', // ID вашего шаблона
+        this.getFormData()
+      );
 
       alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
       this.form.reset();
@@ -54,9 +61,10 @@ export class Form {
 
   getFormData() {
     return {
-      from_name: this.form.querySelector('#name').value,
-      phone_number: this.form.querySelector('#phone').value,
+      name: this.form.querySelector('#name').value,
+      phone: this.form.querySelector('#phone').value,
       address: this.form.querySelector('#address').value,
+      wishes: this.form.querySelector('.wont').value,
       message: `Заявка на замер от ${this.form.querySelector('#name').value}`,
     };
   }
