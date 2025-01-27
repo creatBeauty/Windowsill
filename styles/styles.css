@@ -79,6 +79,7 @@
   justify-content: end;
   align-items: center;
   margin-bottom: 20px;
+  margin-right: 0px;
 }
 .input .width {
   display: block;
@@ -89,11 +90,17 @@
   color: minitext-color;
   font-size: 20px;
 }
+.input .windowsill {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-right: 0px;
+}
 .input .windowsill .length {
-  display: inline-flex;
+  display: flex;
   justify-content: end;
   margin-bottom: 5px;
-  margin-left: 120px;
+  margin-left: 60px;
   width: 120px;
   height: 30px;
   color: minitext-color;
@@ -102,7 +109,7 @@
 .input .windowsill .border {
   position: relative;
   display: flex;
-  width: 250px;
+  width: 200px;
   height: 100px;
   border: 2px solid black;
   color: rgb(71, 68, 81);
@@ -125,6 +132,7 @@
   font-size: 20px;
   font-weight: 100;
   margin-bottom: 0px;
+  margin-right: 10px;
 }
 .input .windowsill .count .count-info {
   display: inline-flex;
