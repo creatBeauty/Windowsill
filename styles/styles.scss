@@ -1,8 +1,6 @@
 @use 'variables' as *;
 @use 'header';
-@use 'main';
-@use 'footer';
-@use 'headerBotton';
+@use 'calculator';
 
 body {
   margin: 15px;

@@ -1,0 +1,127 @@
+@use 'variables' as *;
+
+.calculator {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  color: $minitext-color;
+  margin-bottom: 10px;
+  border-top: 2px solid gray;
+}
+.input {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .width {
+    display: block;
+    margin-right: 5px;
+    width: $input-botton-width;
+    height: $input-botton-height;
+    margin-bottom: -20px;
+    color: minitext-color;
+    font-size: $minitext-font-size;
+  }
+  .windowsill {
+    .length {
+      display: inline-flex;
+      justify-content: end;
+      margin-bottom: 5px;
+      margin-left: 120px;
+      width: $input-botton-width;
+      height: $input-botton-height;
+      color: minitext-color;
+      font-size: $minitext-font-size;
+    }
+    .border {
+      position: relative;
+      display: flex;
+      width: 320px;
+      height: 100px;
+      border: 2px solid black;
+      color: $minitext-color;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      img {
+        width: 100%;
+      }
+    }
+    .count {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+
+      h3 {
+        width: $input-botton-width;
+        height: $input-botton-height;
+        color: $minitext-color;
+        font-size: $minitext-font-size;
+        font-weight: 100;
+        margin-bottom: 0px;
+      }
+
+      .count-info {
+        display: inline-flex;
+        justify-content: end;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        width: $input-botton-width;
+        height: $input-botton-height;
+        color: minitext-color;
+        font-size: $minitext-font-size;
+      }
+    }
+
+    .border-top {
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      #thickness {
+        height: $input-botton-height;
+        width: 50px;
+        font-size: $minitext-font-size;
+      }
+      & option {
+        font-size: $minitext-font-size;
+      }
+    }
+  }
+}
+.calculator-button {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  & button {
+    width: 100%;
+    height: $input-botton-height;
+  }
+  .calculator-button-classic {
+    background-color: $botton-background;
+    font-size: $font-size;
+    color: minitext-color;
+  }
+  .calculator-button-classic:hover {
+    background-color: $botton-background-hover;
+    color: $background-color;
+    & div {
+      font-size: $font-size;
+      color: minitext-color;
+    }
+  }
+  .basket {
+    background-color: rgb(110, 193, 245);
+    font-size: $font-size;
+    color: minitext-color;
+    height: 60px;
+    margin-top: 30px;
+    &:hover {
+      background-color: rgb(5, 69, 108);
+      color: $background-color;
+    }
+    & div {
+      color: minitext-color;
+    }
+  }
+}

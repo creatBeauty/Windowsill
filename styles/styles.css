@@ -1,257 +1,193 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap");
-header {
-  width: 100%;
+.headerTop h2 {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  color: rgb(243, 127, 26);
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: -20px;
 }
-header .headerTop {
-  width: 100%;
-  height: 3rem;
+.headerTop h3 {
   display: flex;
-  text-align: center;
-  margin-bottom: 20px;
-  gap: 20px;
-}
-header .headerTop h2 {
-  margin-top: 4px;
-  color: rgb(181, 182, 112);
-}
-header .headerTop button {
-  width: 50%;
-  border: none;
-  color: rgb(181, 182, 112);
-  background-color: white;
-  font: normal small-caps bold 16px/24px Roboto, Rubik;
-  text-decoration: underline;
-}
-header .headerTop button:hover {
-  color: rgb(55, 143, 244);
-}
-header .headerTop h4 {
-  font-weight: lighter;
-  text-align: center;
-  margin-top: -0.01rem;
-  color: rgb(114, 115, 116);
+  justify-content: center;
+  color: rgb(243, 127, 26);
+  font-size: 20px;
+  font-weight: 100;
 }
 
-.carousel {
-  position: relative;
-  max-width: 600px;
-  margin: auto;
-  height: 400px;
-}
-.carousel-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.carousel-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-}
-.carousel-item.active {
-  display: block;
-}
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: rgba(132, 130, 130, 0.5);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
+.headerBottom {
   display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.headerBottom .work {
   align-items: center;
+}
+.headerBottom .work .work-text h3 {
+  color: rgb(71, 68, 81);
+  margin: 0px;
+  font-size: 15px;
+  font-weight: 100;
+}
+.headerBottom .button {
+  display: flex;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(246, 185, 131);
+  width: 150px;
+  align-items: center;
+  font-size: 20px;
+}
+.headerBottom .button:hover {
+  background-color: rgb(197, 100, 15);
+  color: rgb(243, 236, 236);
+}
+
+.headerContact {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+.headerContact .tel {
+  font-size: 30px;
+  font-weight: 600;
+  color: rgb(243, 127, 26);
+}
+.headerContact .messengers {
+  display: flex;
+}
+.headerContact .messengers .whatsapp {
+  width: 30px;
+  margin-right: 10px;
+}
+.headerContact .messengers .telegram {
+  width: 30px;
+}
+
+.calculator {
+  display: flex;
   justify-content: center;
   font-size: 20px;
-  padding: 0;
-}
-.carousel-control.prev {
-  left: 10px;
-}
-.carousel-control.next {
-  right: 10px;
-}
-.carousel-control:hover {
-  background-color: rgba(60, 55, 55, 0.8);
-}
-.carousel .carousel-info {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 20px;
-  height: 40px;
-  width: 250px;
-  border-radius: 10px;
-  font-size: 1rem;
-  background-color: rgb(112, 166, 18);
-  color: white;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-}
-.carousel .carousel-info:hover {
-  color: rgb(99, 66, 4);
-  background-color: rgb(152, 215, 181);
+  color: rgb(71, 68, 81);
+  margin-bottom: 10px;
+  border-top: 2px solid gray;
 }
 
-.form-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
-.form-container .measurement-form {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.form-container .measurement-form h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #333;
-}
-.form-container .measurement-form .form-group {
-  position: relative;
-  margin-bottom: 25px;
-}
-.form-container .measurement-form .form-group label {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-  transition: 0.3s;
-}
-.form-container .measurement-form .form-group .wont-label {
-  position: static;
-  display: block;
-  margin-bottom: 8px;
-  color: #333;
-  transform: none;
-}
-.form-container .measurement-form .form-group .wont {
-  height: 100px;
-  width: 100%;
-  margin-top: 0;
-  padding: 10px;
-  border: 1px solid #a49a9a;
-  border-radius: 5px;
-}
-.form-container .measurement-form .form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #a49a9a;
-  border-radius: 5px;
-  font-size: 16px;
-}
-.form-container .measurement-form .form-group input:focus {
-  outline: none;
-  border-color: rgb(24, 192, 100);
-}
-.form-container .measurement-form .form-group label {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
-  transition: 0.3s;
-}
-.form-container .measurement-form .form-group input:not(:-moz-placeholder-shown) + label {
-  top: -10px;
-  left: 5px;
-  font-size: 12px;
-  background: white;
-  padding: 0 5px;
-}
-.form-container .measurement-form .form-group input:focus + label,
-.form-container .measurement-form .form-group input:not(:placeholder-shown) + label {
-  top: -10px;
-  left: 5px;
-  font-size: 12px;
-  background: white;
-  padding: 0 5px;
-}
-.form-container .measurement-form .form-buttons {
+.input {
   display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-.form-container .measurement-form .form-buttons button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.3s;
-}
-.form-container .measurement-form .form-buttons button.submit-btn {
-  background-color: rgb(24, 192, 100);
-  color: white;
-}
-.form-container .measurement-form .form-buttons button.submit-btn:hover {
-  background-color: rgb(14, 96, 51);
-}
-.form-container .measurement-form .form-buttons button.back-btn {
-  background-color: #ddd;
-  color: #333;
-}
-.form-container .measurement-form .form-buttons button.back-btn:hover {
-  background-color: #ccc;
-}
-
-.headerBotton {
-  background-color: white;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
+  justify-content: end;
+  align-items: center;
   margin-bottom: 20px;
 }
-.headerBotton .logo {
-  max-height: 100px;
+.input .width {
+  display: block;
+  margin-right: 5px;
+  width: 120px;
+  height: 30px;
+  margin-bottom: -20px;
+  color: minitext-color;
+  font-size: 20px;
 }
-.headerBotton img {
-  margin-left: 20px;
-  max-width: 150px;
+.input .windowsill .length {
+  display: inline-flex;
+  justify-content: end;
+  margin-bottom: 5px;
+  margin-left: 120px;
+  width: 120px;
+  height: 30px;
+  color: minitext-color;
+  font-size: 20px;
 }
-.headerBotton .contact {
+.input .windowsill .border {
+  position: relative;
+  display: flex;
+  width: 320px;
+  height: 100px;
+  border: 2px solid black;
+  color: rgb(71, 68, 81);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.input .windowsill .border img {
+  width: 100%;
+}
+.input .windowsill .count {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.input .windowsill .count h3 {
+  width: 120px;
+  height: 30px;
+  color: rgb(71, 68, 81);
+  font-size: 20px;
+  font-weight: 100;
+  margin-bottom: 0px;
+}
+.input .windowsill .count .count-info {
+  display: inline-flex;
+  justify-content: end;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  width: 120px;
+  height: 30px;
+  color: minitext-color;
+  font-size: 20px;
+}
+.input .windowsill .border-top {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+}
+.input .windowsill .border-top #thickness {
+  height: 30px;
+  width: 50px;
+  font-size: 20px;
+}
+.input .windowsill .border-top option {
+  font-size: 20px;
+}
+
+.calculator-button {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+.calculator-button button {
   width: 100%;
-  align-items: flex-end;
-  margin-right: 20px;
+  height: 30px;
 }
-.headerBotton .contact p {
-  font: normal small-caps bold 16px/24px Roboto, Rubik;
-  text-decoration: underline;
-  text-align: right;
-  font-size: 1rem;
-  width: auto;
-  text-decoration: none;
-  color: rgb(181, 182, 112);
+.calculator-button .calculator-button-classic {
+  background-color: rgb(246, 185, 131);
+  font-size: 20px;
+  color: minitext-color;
 }
-.headerBotton .contact .social {
-  display: flex;
+.calculator-button .calculator-button-classic:hover {
+  background-color: rgb(197, 100, 15);
+  color: rgb(243, 236, 236);
 }
-.headerBotton .contact .social img {
-  width: 30px;
+.calculator-button .calculator-button-classic:hover div {
+  font-size: 20px;
+  color: minitext-color;
+}
+.calculator-button .basket {
+  background-color: rgb(110, 193, 245);
+  font-size: 20px;
+  color: minitext-color;
+  height: 60px;
+  margin-top: 30px;
+}
+.calculator-button .basket:hover {
+  background-color: rgb(5, 69, 108);
+  color: rgb(243, 236, 236);
+}
+.calculator-button .basket div {
+  color: minitext-color;
 }
 
 body {
   margin: 15px;
-  background-color: white;
+  background-color: rgb(243, 236, 236);
 }/*# sourceMappingURL=styles.css.map */
