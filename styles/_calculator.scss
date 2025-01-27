@@ -40,8 +40,9 @@
       font-size: $minitext-font-size;
     }
     .border {
-      position: relative;
       display: flex;
+      justify-content: end;
+      position: relative;
       width: 200px;
       height: 100px;
       border: 2px solid black;
@@ -57,6 +58,7 @@
       display: flex;
       justify-content: end;
       align-items: center;
+      gap: 0px;
 
       h3 {
         width: $input-botton-width;
@@ -64,15 +66,10 @@
         color: $minitext-color;
         font-size: $minitext-font-size;
         font-weight: 100;
-        margin-bottom: 0px;
-        margin-right: 10px;
+        margin-right: -25px;
       }
 
       .count-info {
-        display: inline-flex;
-        justify-content: end;
-        margin-bottom: 5px;
-        margin-left: 10px;
         width: $input-botton-width;
         height: $input-botton-height;
         color: minitext-color;
