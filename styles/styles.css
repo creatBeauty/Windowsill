@@ -125,15 +125,13 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 0px;
+  gap: 5px;
 }
-.input .windowsill .count h3 {
-  width: 120px;
+.input .windowsill .count p {
   height: 30px;
   color: rgb(71, 68, 81);
   font-size: 20px;
   font-weight: 100;
-  margin-right: -25px;
 }
 .input .windowsill .count .count-info {
   width: 120px;

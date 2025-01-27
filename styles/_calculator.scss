@@ -58,15 +58,13 @@
       display: flex;
       justify-content: end;
       align-items: center;
-      gap: 0px;
+      gap: 5px;
 
-      h3 {
-        width: $input-botton-width;
+      p {
         height: $input-botton-height;
         color: $minitext-color;
         font-size: $minitext-font-size;
         font-weight: 100;
-        margin-right: -25px;
       }
 
       .count-info {
