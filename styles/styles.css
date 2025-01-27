@@ -110,8 +110,8 @@
   display: flex;
   justify-content: end;
   position: relative;
-  width: 200px;
-  height: 100px;
+  width: 180px;
+  height: 80px;
   border: 2px solid black;
   color: rgb(71, 68, 81);
   margin-top: 10px;
@@ -141,7 +141,7 @@
 }
 .input .windowsill .border-top {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 25%;
 }
 .input .windowsill .border-top #thickness {
