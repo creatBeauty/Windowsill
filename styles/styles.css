@@ -195,6 +195,7 @@
   display: grid;
   gap: 5px;
   height: 100vh;
+  width: 100vw;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 50px repeat(5, 1fr);
   grid-template-areas: "header header" "div1 div2" "div3 div4" "div5 div6" "button button";
