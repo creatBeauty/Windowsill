@@ -157,7 +157,7 @@
 .calculator-button {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1px;
 }
 .calculator-button button {
   width: 100%;
@@ -167,6 +167,7 @@
   background-color: rgb(246, 185, 131);
   font-size: 20px;
   color: minitext-color;
+  margin-top: 10px;
 }
 .calculator-button .calculator-button-classic:hover {
   background-color: rgb(197, 100, 15);
@@ -189,6 +190,23 @@
 }
 .calculator-button .basket div {
   color: minitext-color;
+}
+
+.confirmStone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid gray;
+}
+
+.choice {
+  font-size: 20px;
+  margin: 0;
+}
+
+.stoneName {
+  font-size: 30px;
+  margin: 0;
 }
 
 .grid-2 {
@@ -274,8 +292,4 @@ html {
 .body {
   margin: 0 auto; /* Центрирование контейнера */
   max-width: 100%; /* Ограничить ширину контейнера */
-}
-
-.hidden {
-  display: none;
 }/*# sourceMappingURL=styles.css.map */

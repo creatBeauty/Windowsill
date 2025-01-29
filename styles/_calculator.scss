@@ -92,7 +92,7 @@
 .calculator-button {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1px;
   & button {
     width: 100%;
     height: $input-botton-height;
@@ -101,10 +101,12 @@
     background-color: $botton-background;
     font-size: $font-size;
     color: minitext-color;
+    margin-top: 10px;
   }
   .calculator-button-classic:hover {
     background-color: $botton-background-hover;
     color: $background-color;
+
     & div {
       font-size: $font-size;
       color: minitext-color;
@@ -124,4 +126,22 @@
       color: minitext-color;
     }
   }
+}
+.confirmStone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid gray;
+
+  // p {
+  //   font-size: 20px;
+  // }
+}
+.choice {
+  font-size: 20px;
+  margin: 0;
+}
+.stoneName {
+  font-size: 30px;
+  margin: 0;
 }
