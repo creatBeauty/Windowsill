@@ -2,7 +2,7 @@
 
 .grid-2 {
   display: grid;
-  gap: 5px;
+  gap: 0px;
   height: 100vh;
   margin: 0 auto; /* Центрирование контейнера */
   max-width: 100%;
@@ -31,8 +31,9 @@
   height: 100%;
   padding: 10px;
   cursor: pointer;
-  border: 2px solid rgb(130, 160, 130);
+  border: #55d88d;
 }
+
 .button-image {
   width: 100%; /* Занимает всю ширину контейнера */
   height: auto; /* Высота автоматически подстраивается */

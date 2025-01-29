@@ -1,6 +1,5 @@
 function confirmColorBorder() {
   const buttons = document.querySelectorAll('.grid-element');
-  const borderElement = document.querySelector('.border');
 
   const borders = document.querySelectorAll('.grid-element');
   borders.forEach((el) => {
@@ -9,7 +8,7 @@ function confirmColorBorder() {
         button.style.border = 'none';
       });
 
-      el.style.border = '2px solid red';
+      el.style.border = '4px solid red';
     });
   });
 }
