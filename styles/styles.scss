@@ -6,7 +6,11 @@
 * {
   box-sizing: border-box;
 }
-body {
+html {
   margin: 15px;
   background-color: $background-color;
+}
+.body {
+  margin: 0 auto; /* Центрирование контейнера */
+  max-width: 100%; /* Ограничить ширину контейнера */
 }
