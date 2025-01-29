@@ -1,4 +1,4 @@
-function getColorButton() {
+function getColorStoneButtons() {
   // Получаем элемент aside
   const aside = document.querySelector('aside');
   const main = document.querySelector('main');
@@ -13,19 +13,4 @@ function getColorButton() {
   });
 }
 
-export { getColorButton };
-
-// Вызов функции
-// Как только DOM загрузится, вызываем функцию
-document.addEventListener('DOMContentLoaded', () => {
-  getColorButton();
-});
-
-function confirmColorButton() {
-  const button = document
-    .getElementById('confirmButton')
-    .addEventListener('click', function () {
-      alert('Выберите цвет');
-    });
-}
-export { confirmColorButton };
+export { getColorStoneButtons };

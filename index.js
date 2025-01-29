@@ -1,5 +1,7 @@
-import { getColorButton } from './modules/button.js';
-import { confirmColorButton } from './modules/button.js';
+import { getColorStoneButtons } from './modules/getColorStoneButtons.js';
+import { confirmColorBorder } from './modules/confirmColorBorder.js';
 
-getColorButton();
-confirmColorButton();
+document.addEventListener('DOMContentLoaded', () => {
+  getColorStoneButtons();
+  confirmColorBorder();
+});
