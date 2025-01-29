@@ -1,8 +1,9 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap");
 .headerTop h2 {
   display: flex;
   justify-content: center;
-  color: rgb(243, 127, 26);
+  color: rgb(246, 146, 47);
   font-size: 30px;
   font-weight: 400;
   margin-bottom: -20px;
@@ -10,7 +11,7 @@
 .headerTop h3 {
   display: flex;
   justify-content: center;
-  color: rgb(243, 127, 26);
+  color: rgb(246, 146, 47);
   font-size: 20px;
   font-weight: 100;
 }
@@ -48,11 +49,12 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
+  border-bottom: 2px solid gray;
 }
 .headerContact .tel {
-  font-size: 30px;
-  font-weight: 600;
-  color: rgb(243, 127, 26);
+  font-size: 25px;
+  font-weight: 550;
+  color: rgb(246, 146, 47);
 }
 .headerContact .messengers {
   display: flex;
@@ -71,7 +73,6 @@
   font-size: 20px;
   color: rgb(71, 68, 81);
   margin-bottom: 10px;
-  border-top: 2px solid gray;
 }
 
 .input {
@@ -188,6 +189,72 @@
 }
 .calculator-button .basket div {
   color: minitext-color;
+}
+
+.grid-2 {
+  display: grid;
+  gap: 5px;
+  height: 100vh;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 50px repeat(5, 1fr);
+  grid-template-areas: "header header" "div1 div2" "div3 div4" "div5 div6" "button button";
+}
+
+.grid-header {
+  grid-area: header;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #717790;
+  color: #fff;
+}
+
+.grid-element {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  height: 100%;
+  border: 2px solid red;
+}
+
+.button-image {
+  width: 100%; /* Занимает всю ширину контейнера */
+  height: auto; /* Высота автоматически подстраивается */
+  -o-object-fit: cover;
+     object-fit: cover; /* Изображение масштабируется, сохраняя пропорции, обрезая края при необходимости */
+}
+
+.confirmColorButton {
+  grid-area: button;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(246, 185, 131);
+  font-weight: 400;
+  color: rgb(71, 68, 81);
+  height: 50px;
+  border: 2px solid rgb(71, 68, 81);
+  animation: pulse 1.5s infinite;
+}
+.confirmColorButton:hover {
+  animation: none; /* Останавливаем анимацию при наведении */
+  background-color: rgb(197, 100, 15); /* Цвет при наведении */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    background-color: #28a745; /* Исходный цвет кнопки */
+    transform: scale(1); /* Исходный размер кнопки */
+  }
+  50% {
+    background-color: #55d88d; /* Цвет при пульсации */
+    transform: scale(1.05); /* Увеличение размера кнопки */
+  }
+}
+* {
+  box-sizing: border-box;
 }
 
 body {

@@ -1,7 +1,11 @@
 @use 'variables' as *;
 @use 'header';
 @use 'calculator';
+@use 'aside';
 
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 15px;
   background-color: $background-color;

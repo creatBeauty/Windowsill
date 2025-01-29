@@ -9,6 +9,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="./styles/styles.css" />
+    <style>
+      /* Скрываем все элементы кроме aside */
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -61,7 +67,7 @@
         </div>
       </div>
       <div class="calculator-button">
-        <button class="calculator-button-classic">
+        <button id="colorButton" class="calculator-button-classic">
           <div>Выбрать цвет</div>
         </button>
         <button class="calculator-button-classic">
@@ -70,5 +76,72 @@
         <button class="basket"><div>Перейти в корзину</div></button>
       </div>
     </main>
+    <aside class="hidden grid-2">
+      <header class="grid-header" style="grid-area: header">
+        Выбираем цвет
+      </header>
+      <button class="gridDiv1 grid-element" style="grid-area: div1">
+        <img
+          src="./foto/Искусственный камень Pure white Grandex.PNG"
+          alt="Описание цвета 1"
+          class="button-image"
+        />
+        <span class="button-description"
+          >Искусственный камень Pure white Grandex</span
+        >
+      </button>
+      <button class="gridDiv2 grid-element" style="grid-area: div2">
+        <img
+          src="./foto/Искусственный камень Natural White Grandex.PNG"
+          alt="Описание цвета 1"
+          class="button-image"
+        />
+        <span class="button-description"
+          >Искусственный камень Natural White Grandex</span
+        >
+      </button>
+      <button class="gridDiv3 grid-element" style="grid-area: div3">
+        <img
+          src="./foto/Искусственный камень Peaceful night Grandex.PNG"
+          alt="Описание цвета 1"
+          class="button-image"
+        />
+        <span class="button-description"
+          >Искусственный камень Peaceful night Grandex</span
+        >
+      </button>
+      <button class="gridDiv4 grid-element" style="grid-area: div4">
+        <img
+          src="./foto/Искусственный камень Natural sand Grandex.PNG"
+          alt="Описание цвета 1"
+          class="button-image"
+        />
+        <span class="button-description"
+          >Искусственный камень Natural sand Grandex</span
+        >
+      </button>
+      <button class="gridDiv5 grid-element" style="grid-area: div5">
+        <img
+          src="./foto/Искусственный камень Morning cofee Grandex.PNG"
+          alt="Описание цвета 1"
+          class="button-image"
+        />
+        <span class="button-description"
+          >Искусственный камень Morning cofee Grandex</span
+        >
+      </button>
+      <button class="gridDiv6 grid-element" style="grid-area: div6">
+        <img
+          src="./foto/Искусственный камень Starry Beat Grandex.PNG"
+          alt="Описание цвета 1"
+          class="button-image"
+        />
+        <span class="button-description"
+          >Искусственный камень Starry Beat Grandex</span
+        >
+      </button>
+      <button class="confirmColorButton" id="confirmButton">Подтвердить</button>
+    </aside>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>

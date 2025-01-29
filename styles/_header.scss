@@ -52,10 +52,11 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
+  border-bottom: 2px solid gray;
 
   .tel {
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 25px;
+    font-weight: 550;
     color: $font-color;
   }
   .messengers {

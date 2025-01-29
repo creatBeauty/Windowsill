@@ -1,0 +1,65 @@
+@use 'variables' as *;
+
+.grid-2 {
+  display: grid;
+  gap: 5px;
+  height: 100vh;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 50px repeat(5, 1fr);
+  grid-template-areas:
+    'header header'
+    'div1 div2'
+    'div3 div4'
+    'div5 div6'
+    'button button';
+}
+.grid-header {
+  grid-area: header;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #717790;
+  color: #fff;
+}
+.grid-element {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  height: 100%;
+  border: 2px solid red;
+}
+.button-image {
+  width: 100%; /* Занимает всю ширину контейнера */
+  height: auto; /* Высота автоматически подстраивается */
+  object-fit: cover; /* Изображение масштабируется, сохраняя пропорции, обрезая края при необходимости */
+}
+
+.confirmColorButton {
+  grid-area: button;
+  font-size: $font-size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $botton-background;
+  font-weight: 400;
+  color: $minitext-color;
+  height: 50px;
+  border: 2px solid $minitext-color;
+  animation: pulse 1.5s infinite;
+  &:hover {
+    animation: none; /* Останавливаем анимацию при наведении */
+    background-color: $botton-background-hover; /* Цвет при наведении */
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    background-color: #28a745; /* Исходный цвет кнопки */
+    transform: scale(1); /* Исходный размер кнопки */
+  }
+  50% {
+    background-color: #55d88d; /* Цвет при пульсации */
+    transform: scale(1.05); /* Увеличение размера кнопки */
+  }
+}
