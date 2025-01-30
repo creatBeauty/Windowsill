@@ -57,8 +57,14 @@
               </select>
             </div>
           </div>
-          <div class="count">
-            <input class="count-info" placeholder="Кол-во (шт.)" />
+          <div
+            class="const thickness = document.getElementById('thickness').value;"
+          >
+            <input
+              id="countInfo"
+              class="count-info"
+              placeholder="Кол-во (шт.)"
+            />
             <p>шт.</p>
           </div>
         </div>
@@ -71,7 +77,7 @@
         <button id="colorButton" class="calculator-button-classic">
           <div>Выбрать камень</div>
         </button>
-        <button class="calculator-button-classic">
+        <button id="addtoBasket" class="calculator-button-classic">
           <div>Добавить в корзину</div>
         </button>
         <button class="basket"><div>Перейти в корзину</div></button>
@@ -135,6 +141,8 @@
     </aside>
     <section class="sectionShoppingCart">
       <p>Вы выбрали</p>
+
+      <div id="output"></div>
     </section>
     <script type="module" src="./index.js"></script>
   </body>
