@@ -37,13 +37,13 @@
     justify-content: center;
     border: none;
     border-radius: 5px;
-    background-color: $botton-background;
+    background-color: $button-background;
     width: 150px;
     align-items: center;
     font-size: $font-size;
 
     &:hover {
-      background-color: $botton-background-hover;
+      background-color: $button-background-hover;
       color: $background-color;
     }
   }

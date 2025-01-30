@@ -15,11 +15,12 @@ function confirmColorStoneButton() {
     console.log('Кнопка нажата');
     header.style.display = 'block';
     // Скрываем aside
-    aside.style.display = 'none'; // Скрыть aside
+    aside.style.display = 'none';
 
     // Показываем главный элемент
     main.style.display = 'block';
     section.style.display = 'none';
+
     // Показать main (или 'flex')
   });
 }

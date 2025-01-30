@@ -17,8 +17,8 @@
   .width {
     display: block;
     margin-right: 5px;
-    width: $input-botton-width;
-    height: $input-botton-height;
+    width: $input-button-width;
+    height: $input-button-height;
     margin-bottom: -20px;
     color: minitext-color;
     font-size: $minitext-font-size;
@@ -33,8 +33,8 @@
       justify-content: end;
       margin-bottom: 5px;
       margin-left: 60px;
-      width: $input-botton-width;
-      height: $input-botton-height;
+      width: $input-button-width;
+      height: $input-button-height;
       color: minitext-color;
       font-size: $minitext-font-size;
     }
@@ -60,15 +60,15 @@
       gap: 5px;
 
       p {
-        height: $input-botton-height;
+        height: $input-button-height;
         color: $minitext-color;
         font-size: $minitext-font-size;
         font-weight: 100;
       }
 
       .count-info {
-        width: $input-botton-width;
-        height: $input-botton-height;
+        width: $input-button-width;
+        height: $input-button-height;
         color: minitext-color;
         font-size: $minitext-font-size;
       }
@@ -79,7 +79,7 @@
       top: 15%;
       left: 10%;
       #thickness {
-        height: $input-botton-height;
+        height: $input-button-height;
         width: 50px;
         font-size: $minitext-font-size;
       }
@@ -95,16 +95,16 @@
   gap: 1px;
   & button {
     width: 100%;
-    height: $input-botton-height;
+    height: $input-button-height;
   }
   .calculator-button-classic {
-    background-color: $botton-background;
+    background-color: $button-background;
     font-size: $font-size;
     color: minitext-color;
     margin-top: 10px;
   }
   .calculator-button-classic:hover {
-    background-color: $botton-background-hover;
+    background-color: $button-background-hover;
     color: $background-color;
 
     & div {

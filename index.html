@@ -141,9 +141,31 @@
     </aside>
     <section class="sectionShoppingCart">
       <p>Вы выбрали</p>
-
       <div id="output"></div>
+      <div class="cost">
+        <button>Получить стоимость</button>
+        <div class="cost-info">
+          <p>___________</p>
+          <p>руб.</p>
+        </div>
+      </div>
+      <div class="decision">
+        <button class="exit">На главную</button>
+        <button class="start">Оформить заказ</button>
+      </div>
     </section>
+    <footer class="footer">
+      <h2>Изготовление 5 рабочих дней</h2>
+      <div class="footer-input">
+        <input class="footer-input-button" type="text" placeholder="ФИО" />
+        <input class="footer-input-button" type="text" placeholder="тел." />
+        <input class="footer-input-button" type="text" placeholder="почта" />
+        <button class="footer-input-button footer-button">
+          Запросить счет (придет на почту)
+        </button>
+      </div>
+    </footer>
+
     <script type="module" src="./index.js"></script>
   </body>
 </html>

@@ -46,7 +46,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $botton-background;
+  background: $button-background;
   font-weight: 400;
   color: $minitext-color;
   height: 50px;
@@ -60,7 +60,7 @@
   z-index: 1000;
   &:hover {
     animation: none; /* Останавливаем анимацию при наведении */
-    background-color: $botton-background-hover; /* Цвет при наведении */
+    background-color: $button-background-hover; /* Цвет при наведении */
   }
 }
 @keyframes pulse {

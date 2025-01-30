@@ -8,7 +8,7 @@ function gotoShoppingCart() {
   // Устанавливаем начальные состояния элементов
   header.style.display = 'block';
   aside.style.display = 'none'; // Скрываем aside
-  section.style.display = 'none'; // Скрываем секцию
+  section.style.display = 'none';
 
   // Присоединяем обработчик события к корзине
   document.querySelector('.basket').addEventListener('click', function () {

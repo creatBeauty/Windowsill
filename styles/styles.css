@@ -286,6 +286,63 @@
   font-size: 20px;
 }
 
+.cost {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.cost button {
+  width: 100%;
+  background-color: rgb(246, 185, 131);
+  font-size: 20px;
+  color: minitext-color;
+  margin-top: 10px;
+}
+.cost .cost-info {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.decision {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+.decision button {
+  background-color: rgb(246, 185, 131);
+  font-size: 20px;
+  color: rgb(71, 68, 81);
+  margin-top: 10px;
+  width: 100%;
+}
+
+footer {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer .footer-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+footer .footer-input .footer-input-button {
+  height: 40px;
+}
+footer .footer-input .footer-button {
+  background-color: rgb(246, 185, 131);
+  font-size: 20px;
+  color: rgb(71, 68, 81);
+  margin-top: 10px;
+  width: 100%;
+}
+
 * {
   box-sizing: border-box;
 }
