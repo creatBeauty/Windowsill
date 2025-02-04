@@ -10,6 +10,7 @@ import { getCost } from './src/components/5calculateСost.js';
 import { getCutting } from './src/components/10cuttingButton.js';
 import { getDrawing } from './src/components/9drawingButton.js';
 import { foto } from './src/components/11fotoButton.js';
+import { request } from './src/components/6sendRequestButton.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   viewHeader();
@@ -24,4 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
   getCutting();
   getDrawing();
   foto();
+  request();
 });
