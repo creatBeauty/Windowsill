@@ -8,13 +8,40 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="./styles/styles.css" />
-    <style>
-      /* Скрываем все элементы кроме aside */
-    </style>
+    <link rel="stylesheet" href="./src/styles/styles.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init({
+          publicKey: 'YOUR_PUBLIC_KEY',
+        });
+      })();
+    </script>
+    <script type="text/javascript">
+      window.onload = function () {
+        document
+          .getElementById('contact-form')
+          .addEventListener('submit', function (event) {
+            event.preventDefault();
+            // these IDs from the previous steps
+            emailjs.sendForm('contact_service', 'contact_form', this).then(
+              () => {
+                console.log('SUCCESS!');
+              },
+              (error) => {
+                console.log('FAILED...', error);
+              }
+            );
+          });
+      };
+    </script>
   </head>
   <body>
-    <header>
+    <header class="headerHeader">
       <div class="headerTop">
         <div><h2>Подоконник</h2></div>
         <div><h3>из акрилового камня</h3></div>
@@ -24,7 +51,7 @@
           <div class="work-text"><h3>Изготовление на заказ</h3></div>
           <div class="work-text"><h3>Москва и область (Юг)</h3></div>
         </div>
-        <button class="button">Наши работы</button>
+        <button id="ourWork" class="button">Наши работы</button>
       </div>
       <div class="headerContact">
         <div class="tel">+7 (964) 773-55-43</div>
@@ -37,53 +64,50 @@
           </div>
         </div>
       </div>
-    </header>
-    <main>
-      <div class="calculator">Калькулятор (размеры в мм)</div>
-      <div class="input">
-        <input class="width" placeholder="Ширина(мм)" />
-        <div class="windowsill">
-          <input class="length" placeholder="Длина(мм)" />
-          <div class="border">
-            <img src="./foto/k1.PNG" alt="" />
-            <div class="border-top">
-              <div>Размеры подоконника (мм)</div>
-              <label for="thickness">Толщина:</label>
-              <select id="thickness" placeholder="Толщина">
-                <option>25</option>
-                <option>30</option>
-                <option>35</option>
-                <option>40</option>
-              </select>
+      <div class="mainMain">
+        <div class="calculator">Калькулятор (размеры в мм)</div>
+        <div class="input">
+          <input class="input-size width" placeholder="Шир." />
+          <div class="windowsill">
+            <input class="input-size length" placeholder="Дл." />
+            <div class="border">
+              <img src="./foto/k1.PNG" alt="" />
+              <div class="border-top">
+                <div>Размеры подоконника (мм)</div>
+                <label for="thickness">Толщина:</label>
+                <select id="thickness" placeholder="Толщина">
+                  <option>25</option>
+                  <option>30</option>
+                  <option>35</option>
+                  <option>40</option>
+                </select>
+              </div>
+            </div>
+            <div class="countIN">
+              <input id="countInfo" class="input-size" placeholder="Кол-во " />
+              <p>шт.</p>
             </div>
           </div>
-          <div
-            class="const thickness = document.getElementById('thickness').value;"
-          >
-            <input
-              id="countInfo"
-              class="count-info"
-              placeholder="Кол-во (шт.)"
-            />
-            <p>шт.</p>
-          </div>
+        </div>
+        <div class="confirmStone">
+          <p class="choice">Ваш выбор:</p>
+          <p class="stoneName">выберите камень</p>
+        </div>
+        <div class="calculator-button">
+          <button id="getStoneButton" class="calculator-button-classic">
+            <div>Выбрать камень</div>
+          </button>
+          <button id="addtoBasket" class="calculator-button-classic">
+            <div>Добавить в корзину</div>
+          </button>
+          <button id="gotoBasket" class="basket">
+            <div>Перейти в корзину</div>
+          </button>
         </div>
       </div>
-      <div class="confirmStone">
-        <p class="choice">Ваш выбор:</p>
-        <p class="stoneName">Pure white Grandex</p>
-      </div>
-      <div class="calculator-button">
-        <button id="colorButton" class="calculator-button-classic">
-          <div>Выбрать камень</div>
-        </button>
-        <button id="addtoBasket" class="calculator-button-classic">
-          <div>Добавить в корзину</div>
-        </button>
-        <button class="basket"><div>Перейти в корзину</div></button>
-      </div>
-    </main>
-    <aside class="hidden grid-2">
+    </header>
+
+    <main class="grid-2">
       <header class="grid-header" style="grid-area: header">
         Выбираем цвет
       </header>
@@ -93,6 +117,10 @@
           alt="Описание цвета 1"
           class="button-image"
         />
+        <div class="price">
+          <span class="symmPrice">16000</span>
+          <span class="namePrice">руб/лист</span>
+        </div>
         <span class="button-description">Pure white Grandex</span>
       </button>
       <button class="gridDiv2 grid-element border" style="grid-area: div2">
@@ -101,6 +129,10 @@
           alt="Описание цвета 1"
           class="button-image"
         />
+        <div class="price">
+          <span class="symmPrice">19000</span>
+          <span class="namePrice">руб/лист</span>
+        </div>
         <span class="button-description">Natural White Grandex</span>
       </button>
       <button class="gridDiv3 grid-element border" style="grid-area: div3">
@@ -109,6 +141,10 @@
           alt="Описание цвета 1"
           class="button-image"
         />
+        <div class="price">
+          <span class="symmPrice">17000</span>
+          <span class="namePrice">руб/лист</span>
+        </div>
         <span class="button-description">Peaceful night Grandex</span>
       </button>
       <button class="gridDiv4 grid-element border" style="grid-area: div4">
@@ -117,6 +153,10 @@
           alt="Описание цвета 1"
           class="button-image"
         />
+        <div class="price">
+          <span class="symmPrice">27000</span>
+          <span class="namePrice">руб/лист</span>
+        </div>
         <span class="button-description">Natural sand Grandex</span>
       </button>
       <button class="gridDiv5 grid-element border" style="grid-area: div5">
@@ -125,6 +165,10 @@
           alt="Описание цвета 1"
           class="button-image"
         />
+        <div class="price">
+          <span class="symmPrice">23000</span>
+          <span class="namePrice">руб/лист</span>
+        </div>
         <span class="button-description">Morning cofee Grandex</span>
       </button>
       <button class="gridDiv6 grid-element border" style="grid-area: div6">
@@ -133,39 +177,92 @@
           alt="Описание цвета 1"
           class="button-image"
         />
+        <div class="price">
+          <span class="symmPrice">20000</span>
+          <span class="namePrice">руб/лист</span>
+        </div>
         <span class="button-description">Starry Beat Grandex</span>
       </button>
       <button class="confirmColorButton" id="confirmColorStoneButton">
         Подтвердить
       </button>
-    </aside>
-    <section class="sectionShoppingCart">
-      <p>Вы выбрали</p>
-      <div id="output"></div>
+    </main>
+
+    <aside class="sectionShoppingCart">
+      <p class="aside-top">Вы выбрали</p>
+      <div class="aside-stone">
+        <p class="aside-color-stone">Цвет камня:</p>
+        <p id="outputColorStone"></p>
+      </div>
+      <div class="aside-stone aside-price">
+        <p class="aside-color-stone aside-prise-stone">Стоимость за лист:</p>
+        <p id="priceForList"></p>
+      </div>
+      <div id="outputSelectedWindowSills"></div>
       <div class="cost">
-        <button>Получить стоимость</button>
+        <button id="getCost" class="headerPage">Расчитать стоимость</button>
         <div class="cost-info">
-          <p>___________</p>
+          <p id="costOfTheOrder"></p>
           <p>руб.</p>
         </div>
       </div>
+      <button id="cutting">Посмотреть раскрой</button>
+      <button id="drawing">Посмотреть чертеж</button>
       <div class="decision">
-        <button class="exit">На главную</button>
-        <button class="start">Оформить заказ</button>
+        <button class="exit headerPage">На главную</button>
       </div>
+    </aside>
+    <section class="drawing" id="drawing">
+      Чертеж подоконника
+      <button class="exit headerPage">На главную</button>
     </section>
+    <figure>
+      <div id="wrap"></div>
+      <button class="exit headerPage">На главную</button>
+    </figure>
+    <article id="works" class="foto">
+      Наши работы
+      <button class="exit headerPage">На главную</button>
+    </article>
     <footer class="footer">
-      <h2>Изготовление 5 рабочих дней</h2>
+      <div class="footer-text-top">Изготовление 5 рабочих дней</div>
+      <h3>Оформить заказ</h3>
       <div class="footer-input">
-        <input class="footer-input-button" type="text" placeholder="ФИО" />
-        <input class="footer-input-button" type="text" placeholder="тел." />
-        <input class="footer-input-button" type="text" placeholder="почта" />
-        <button class="footer-input-button footer-button">
-          Запросить счет (придет на почту)
-        </button>
+        <form id="contact-form" class="footer-input">
+          <!-- To simplify the tutorial, the value is static. -->
+          <input type="hidden" name="contact_number" value="697483" />
+
+          <input type="text" name="user_name" placeholder="ФИО" />
+
+          <input type="email" name="user_email" placeholder="почта" />
+          <label>Message</label>
+          <textarea id="message-info" name="message"></textarea>
+          <input
+            class="footer-input"
+            type="button"
+            value="Запросить счет (придет на почту)"
+          />
+        </form>
+
+        <p class="footer-text-top">
+          Самовывоз (яндекс доставка) силами заказчика
+        </p>
+        <div class="footerBottom">
+          <div class="adress">
+            <h3>Мы находимся</h3>
+            <h4>Подольск, ул.Комсомольская 1</h4>
+          </div>
+          <button id="openMap">
+            <img
+              src="./foto/my_maps_maps_google_google_apps_icon_196687.png"
+              alt=""
+            />
+          </button>
+        </div>
       </div>
     </footer>
 
+    <script type="module" src="./src/logic/cutting.js"></script>
     <script type="module" src="./index.js"></script>
   </body>
 </html>

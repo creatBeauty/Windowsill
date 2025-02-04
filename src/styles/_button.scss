@@ -1,0 +1,16 @@
+@use 'variables' as *;
+.headerPage {
+  width: 100%;
+  height: 30px;
+  color: $button-font-size-color;
+  background: $button-background;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  &:hover {
+    background: $button-background-hover;
+    color: $font-color-white;
+  }
+}
+#getCost {
+  width: 150px;
+}

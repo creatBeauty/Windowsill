@@ -1,0 +1,17 @@
+#wrap {
+  width: 100vw;
+  height: 100vh;
+  .sheet {
+    position: absolute;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  .used {
+    background: #e0e0e0;
+  }
+
+  .contains {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}

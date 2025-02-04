@@ -1,5 +1,84 @@
 @use 'variables' as *;
 
+.headerHeader {
+  display: flex;
+  flex-direction: column;
+}
+.headerTop {
+  h2 {
+    display: flex;
+    justify-content: center;
+    color: $font-color;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: -20px;
+  }
+  h3 {
+    display: flex;
+    justify-content: center;
+    color: $font-color;
+    font-size: 20px;
+    font-weight: 100;
+  }
+}
+.headerBottom {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  .work {
+    align-items: center;
+    .work-text {
+      h3 {
+        color: $minitext-color;
+        margin: -0px;
+        font-size: 15px;
+        font-weight: 100;
+      }
+    }
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    background-color: $button-background;
+    width: 150px;
+    align-items: center;
+    font-size: $font-size;
+
+    &:hover {
+      background-color: $button-background-hover;
+      color: $background-color;
+    }
+  }
+}
+.headerContact {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+  border-bottom: 2px solid gray;
+
+  .tel {
+    font-size: 25px;
+    font-weight: 550;
+    color: $font-color;
+  }
+  .messengers {
+    display: flex;
+    .whatsapp {
+      width: 30px;
+      margin-right: 10px;
+    }
+    .telegram {
+      width: 30px;
+    }
+  }
+}
+
+.mainMain {
+  display: flex;
+  flex-direction: column;
+}
 .calculator {
   display: flex;
   justify-content: center;
@@ -14,12 +93,12 @@
   margin-bottom: 20px;
   margin-right: 0px;
 
-  .width {
+  .input-size {
     display: block;
     margin-right: 5px;
     width: $input-button-width;
     height: $input-button-height;
-    margin-bottom: -20px;
+    margin-bottom: 0px;
     color: minitext-color;
     font-size: $minitext-font-size;
   }
@@ -142,6 +221,21 @@
   margin: 0;
 }
 .stoneName {
-  font-size: 30px;
+  font-size: 20px;
   margin: 0;
+}
+
+// Добавлено состояние для главной страницы
+.main-page {
+  header {
+    display: flex;
+  }
+
+  // Все остальные элементы скрыты
+  * {
+    display: none;
+  }
+}
+.countIN {
+  display: flex;
 }

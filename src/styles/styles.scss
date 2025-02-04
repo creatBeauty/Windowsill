@@ -1,0 +1,32 @@
+@use 'variables' as *;
+@use '1header' as header;
+@use '2main' as main;
+@use '3aside' as aside;
+@use '4section' as section;
+@use '5figure' as figure;
+@use '6article' as article;
+@use '7footer' as footer;
+@use 'button' as button;
+
+* {
+  box-sizing: border-box;
+}
+html {
+  margin: 15px;
+  background-color: $background-color;
+}
+.body {
+  margin: 0 auto; /* Центрирование контейнера */
+  max-width: 100%; /* Ограничить ширину контейнера */
+}
+.hidden {
+  display: none !important;
+}
+
+.visible-flex {
+  display: flex !important;
+}
+
+.visible-grid {
+  display: grid !important;
+}
