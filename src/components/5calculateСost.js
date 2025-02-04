@@ -13,7 +13,7 @@ function getCost() {
     let colorStone = document.getElementById('outputColorStone').textContent;
 
     // Вычисляем общую стоимость
-    const totalCost = (parseFloat(priceForList) * customSheets).toFixed(2);
+    const totalCost = (parseFloat(priceForList) * customSheets).toFixed(2) * 2;
 
     // Обновляем отображение
     costOfTheOrder.textContent = totalCost;
