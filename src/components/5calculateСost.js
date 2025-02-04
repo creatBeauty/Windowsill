@@ -18,7 +18,7 @@ function getCost() {
     // Обновляем отображение
     costOfTheOrder.textContent = totalCost;
 
-    messageInfo.textContent = `Стоимость ${totalCost} за <<${windowsill.textContent}>> камень ${colorStone} `;
+    messageInfo.textContent = `Прошу выставить счет на сумму ${totalCost} за <<${windowsill.textContent}>> камень ${colorStone} `;
   });
 }
 

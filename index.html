@@ -17,7 +17,7 @@
       (function () {
         // https://dashboard.emailjs.com/admin/account
         emailjs.init({
-          publicKey: 'YOUR_PUBLIC_KEY',
+          publicKey: 'vUFTYjStV3HcMn2iV',
         });
       })();
     </script>
@@ -28,7 +28,7 @@
           .addEventListener('submit', function (event) {
             event.preventDefault();
             // these IDs from the previous steps
-            emailjs.sendForm('contact_service', 'contact_form', this).then(
+            emailjs.sendForm('service_deefxek', 'template_ryqxxtg', this).then(
               () => {
                 console.log('SUCCESS!');
               },
@@ -238,13 +238,13 @@
 
           <textarea id="message-info" name="message"></textarea>
           <input
-            class="footer-input"
-            type="button"
+            class="headerPage footerButton"
             value="Запросить счет (придет на почту)"
+            type="submit"
           />
         </form>
 
-        <p class="footer-text-top">
+        <p class="footer-text-top footer-text-bottom">
           Самовывоз (яндекс доставка) силами заказчика
         </p>
         <div class="footerBottom">

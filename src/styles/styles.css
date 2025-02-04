@@ -373,7 +373,7 @@
 .footer .footer-text-top {
   color: rgb(71, 68, 81);
   font-size: 15px;
-  margin-top: 0px;
+  margin-top: -5px;
 }
 .footer .footer-top {
   margin-top: 0px;
@@ -383,7 +383,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 0px;
-  gap: 5px;
+  gap: 2px;
 }
 .footer .footer-input #message-info {
   height: 80px;
@@ -415,8 +415,12 @@
   filter: blur(1px); /* Добавляет нечеткость */
 }
 .footerBottom #openMap img {
-  height: 100px;
+  height: 60px;
   width: 100px;
+}
+
+.footer-text-bottom {
+  margin: 0px;
 }
 
 .headerPage {
