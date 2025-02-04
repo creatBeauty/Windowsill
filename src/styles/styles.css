@@ -317,6 +317,7 @@
 .sectionShoppingCart .aside-stone {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: -10px;
   margin-bottom: -20px;
 }
@@ -333,7 +334,7 @@
   display: flex;
   justify-content: space-between;
   height: 50px;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 20px;
 }
 .sectionShoppingCart .cost .cost-info {
@@ -341,7 +342,7 @@
   justify-content: space-between;
 }
 .sectionShoppingCart .cost .cost-info #costOfTheOrder {
-  font-size: 30px;
+  font-size: 25px;
 }
 .sectionShoppingCart .cost .cost-info p {
   margin: 10px;
@@ -371,6 +372,11 @@
 .footer .footer-text-top {
   color: rgb(71, 68, 81);
   font-size: 15px;
+  margin-top: 0px;
+}
+.footer .footer-top {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .footer .footer-input {
   display: flex;
@@ -427,6 +433,7 @@
 
 #getCost {
   width: 150px;
+  height: 50px;
 }
 
 * {
