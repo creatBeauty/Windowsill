@@ -5,13 +5,13 @@ function BorderColorButton() {
 
   buttons.forEach((button) => {
     button.addEventListener('click', function () {
-      // Убираем рамки у всех кнопок
+      // Убираем классы у всех кнопок
       buttons.forEach((btn) => {
-        btn.style.border = 'none';
+        btn.classList.remove('selected'); // Убираем класс
       });
 
-      // Устанавливаем рамку у нажатой кнопки
-      button.style.border = '4px solid red';
+      // Устанавливаем класс у нажатой кнопки
+      button.classList.add('selected'); // Добавляем класс
 
       // Вызываем функцию выбора камня
       choosingStone(button);

@@ -26,6 +26,7 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 10px;
+
   .work {
     align-items: center;
     .work-text {
@@ -172,6 +173,7 @@
 .calculator-button {
   display: flex;
   flex-direction: column;
+
   gap: 1px;
   & button {
     width: 100%;
@@ -182,6 +184,8 @@
     font-size: $font-size;
     color: minitext-color;
     margin-top: 10px;
+    border: 2px solid gray;
+    border-radius: 15px;
   }
   .calculator-button-classic:hover {
     background-color: $button-background-hover;
@@ -193,13 +197,14 @@
     }
   }
   .basket {
-    background-color: rgb(110, 193, 245);
+    background-color: rgb(110, 193, 245, 0.3);
     font-size: $font-size;
     color: minitext-color;
     height: 60px;
     margin-top: 30px;
+    border-radius: 25px;
     &:hover {
-      background-color: rgb(5, 69, 108);
+      background-color: rgb(174, 191, 202);
       color: $background-color;
     }
     & div {
