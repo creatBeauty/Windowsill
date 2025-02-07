@@ -364,6 +364,18 @@
   margin: 10px;
 }
 
+.drawing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.drawing p {
+  color: rgb(246, 146, 47);
+}
+.drawing img {
+  width: 100vw;
+}
+
 #wrap {
   width: 100vw;
   height: 100vh;
