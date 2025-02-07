@@ -13,20 +13,30 @@
   }
   .aside-stone {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    margin-top: -10px;
-    margin-bottom: -20px;
-    .aside-price {
-      margin-top: -30px;
-    }
+    margin-top: 0px;
   }
-  .aside-prise-stone {
+  .praceSTT {
+    display: flex;
+    justify-content: space-around;
+    margin-top: -20px;
+  }
+  .aside-prise-stone,
+  #priceForList {
     margin-bottom: 30px;
+    font-size: 12px;
+    margin-right: 5px;
+    color: rgb(161, 159, 159);
   }
 
   .aside-color-stone {
+    margin-top: 0px;
     font-size: 20px;
+    .colomnStone {
+      display: flex;
+      flex-direction: column;
+    }
   }
   .cost {
     display: flex;
