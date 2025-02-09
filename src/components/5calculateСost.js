@@ -20,7 +20,7 @@ function getCost() {
     // Получаем процент использования купленного материала
     const kUseMaterial =
       (length * width * count) / 1000000 / (customSheetsToOrder * 3.6 * 0.76);
-    const extension = 3; //Добавочный коэф-т, стоим-сть клея,доставки....
+    const extension = 2.5; //Добавочный коэф-т, стоим-сть клея,доставки....
 
     console.log(kUseMaterial);
     console.log(priceForList);
@@ -28,10 +28,8 @@ function getCost() {
 
     // Вычисляем общую стоимость
     const totalCost = Math.round(
-      parseFloat(priceForList) * customSheetsToOrder +
-        kUseMaterial *
-          extension *
-          (parseFloat(priceForList) * customSheetsToOrder)
+      parseFloat(priceForList) * customSheetsToOrder * extension +
+        kUseMaterial * (parseFloat(priceForList) * customSheetsToOrder)
     );
 
     // Обновляем отображение

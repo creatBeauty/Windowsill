@@ -1,3 +1,6 @@
+// Только логика, Делает раскрой и возвращает необходимое колличество листов для заказа,
+// с учетом что продается лист по 1/4
+
 function createCutting(inputData) {
   var wrap = document.getElementById('wrap');
 

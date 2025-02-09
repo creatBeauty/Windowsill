@@ -1,3 +1,5 @@
+// Добавляем заказ в корзину
+
 function addtoBasketlogic() {
   let countClick = 0;
   const DatCuting = [];

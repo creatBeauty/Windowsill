@@ -1,3 +1,5 @@
+//Подсчет необходимого колличества листов для изготовления заказа
+
 import { createCutting } from './cutting.js';
 import { convertDatForCutting } from './convertDatForCutting.js';
 
