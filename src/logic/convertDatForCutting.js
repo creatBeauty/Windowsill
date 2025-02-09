@@ -1,3 +1,6 @@
+// Преодразует данные введенные пользователем, в нужный формат,
+// который принимает функция cuting()
+
 function convertDatForCutting(items) {
   // Функция для преобразования одного описания
   const convertDescription = (description, id) => {
