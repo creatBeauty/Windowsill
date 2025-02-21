@@ -1,7 +1,6 @@
 @use 'variables' as *;
 
-.drawing {
-  display: flex;
+#section {
   flex-direction: column;
   align-items: center;
   p {

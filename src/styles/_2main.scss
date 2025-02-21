@@ -1,99 +1,170 @@
 @use 'variables' as *;
 
-.grid-2 {
-  display: grid;
-  gap: 10px;
-  height: 100vh;
-  margin: 0 auto; /* Центрирование контейнера */
-  width: 90vw;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 50px repeat(auto-fit, 1fr);
-
-  grid-template-areas:
-    'header header'
-    'div1 div2'
-    'div3 div4'
-    'div5 div6'
-    'div7 div8'
-    'div9 div10'
-    'div11 div12'
-    'div13 div14'
-    'div15 div16'
-    'div17 div18'
-    'div19 div20'
-    'div21 div22'
-    'button button';
+main {
+  display: flex;
+  flex-direction: column;
 }
-.grid-header {
-  grid-area: header;
-  font-size: 30px;
+.calculator {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: #717790;
-  color: #fff;
-}
-.grid-element {
-  display: flex;
-  flex-direction: column-reverse;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  cursor: pointer;
-  border: none;
-  transition: border 0.3s, filter 0.3s;
-  border-radius: 25px;
-  &:hover {
-    border: 5px solid rgb(251, 222, 165);
-  }
-}
-
-.selected {
-  border: 4px solid rgb(239, 139, 139); /* Стили для выбранной кнопки */
-}
-
-.button-image {
-  width: 100%; /* Занимает всю ширину контейнера */
-  height: auto; /* Высота автоматически подстраивается */
-  object-fit: cover;
-  /* Изображение масштабируется, сохраняя пропорции, обрезая края при необходимости */
-}
-
-.confirmColorButton {
-  grid-area: button;
-  font-size: $font-size;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-weight: 400;
+  font-size: 20px;
   color: $minitext-color;
-  height: 50px;
-  width: 200px;
-  border: none;
-  animation: pulse 1.5s infinite;
-  position: fixed;
-  bottom: 20px;
-  width: 100wh;
-  border-radius: 25px;
-  background-color: transparent;
+  margin-bottom: 10px;
+}
+.input {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: 0px;
 
-  z-index: 1000;
-  &:hover {
-    animation: none; /* Останавливаем анимацию при наведении */
-    border: 1px solid red;
-    background-color: rgba(243, 208, 208, 0.5);
+  .input-size {
+    display: block;
+    margin-right: 5px;
+    width: $input-button-width;
+    height: $input-button-height;
+    margin-bottom: 0px;
+    color: minitext-color;
+    font-size: $minitext-font-size;
+  }
+  .windowsill {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-right: 0px;
+    .length {
+      display: flex;
+      justify-content: end;
+      margin-bottom: 5px;
+      margin-left: 60px;
+      width: $input-button-width;
+      height: $input-button-height;
+      color: minitext-color;
+      font-size: $minitext-font-size;
+    }
+    .border {
+      display: flex;
+      justify-content: end;
+      position: relative;
+      width: 180px;
+      height: 80px;
+      border: 2px solid black;
+      color: $minitext-color;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      img {
+        width: 100%;
+      }
+    }
+    .count {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 5px;
+
+      p {
+        height: $input-button-height;
+        color: $minitext-color;
+        font-size: $minitext-font-size;
+        font-weight: 100;
+      }
+
+      .count-info {
+        width: $input-button-width;
+        height: $input-button-height;
+        color: minitext-color;
+        font-size: $minitext-font-size;
+      }
+    }
+
+    .border-top {
+      position: absolute;
+      top: 15%;
+      left: 10%;
+      #thickness {
+        height: $input-button-height;
+        width: 50px;
+        font-size: $minitext-font-size;
+      }
+      & option {
+        font-size: $minitext-font-size;
+      }
+    }
   }
 }
-@keyframes pulse {
-  0%,
-  100% {
-    background-color: rgba(105, 243, 137, 0.6);
-    transform: scale(1);
-    border: 3px solid rgba(105, 243, 137, 0.6); /* Исходный размер кнопки */
+.calculator-button {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1px;
+  & button {
+    width: 100%;
+    height: $input-button-height;
   }
-  50% {
-    transform: scale(1.05);
-    border: 3px solid rgba(105, 243, 137, 0.9); /* Увеличение размера кнопки */
+  .calculator-button-classic {
+    background-color: $button-background;
+    font-size: $font-size;
+    color: minitext-color;
+    margin-top: 10px;
+    border: 2px solid gray;
+    border-radius: 15px;
   }
+  .calculator-button-classic:hover {
+    background-color: $button-background-hover;
+    color: $background-color;
+
+    & div {
+      font-size: $font-size;
+      color: minitext-color;
+    }
+  }
+  .basket {
+    background-color: rgb(110, 193, 245, 0.3);
+    font-size: $font-size;
+    color: minitext-color;
+    height: 60px;
+    margin-top: 30px;
+    border-radius: 25px;
+    &:hover {
+      background-color: rgb(174, 191, 202);
+      color: $background-color;
+    }
+    & div {
+      color: minitext-color;
+    }
+  }
+}
+.confirmStone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid gray;
+
+  // p {
+  //   font-size: 20px;
+  // }
+}
+.choice {
+  font-size: 20px;
+  margin: 0;
+}
+.stoneName {
+  font-size: 20px;
+  margin: 0;
+}
+
+// Добавлено состояние для главной страницы
+.main-page {
+  header {
+    display: flex;
+  }
+
+  // Все остальные элементы скрыты
+  * {
+    display: none;
+  }
+}
+.countIN {
+  display: flex;
 }

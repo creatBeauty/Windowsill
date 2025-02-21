@@ -1,15 +1,21 @@
 @use 'variables' as *;
 @use '1header' as header;
 @use '2main' as main;
-@use '3aside' as aside;
-@use '4section' as section;
-@use '5figure' as figure;
-@use '6article' as article;
+@use '3menu' as menu;
+@use '4aside' as aside;
+@use '5section' as section;
+@use '6figure' as figure;
 @use '7footer' as footer;
 @use 'button' as button;
+@use '1.1slider' as slider;
 
 * {
   box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
 }
 html {
   margin: 15px;
@@ -17,16 +23,28 @@ html {
 }
 .body {
   margin: 0 auto; /* Центрирование контейнера */
-  max-width: 100%; /* Ограничить ширину контейнера */
+  max-width: 90%; /* Ограничить ширину контейнера */
 }
-.hidden {
-  display: none !important;
+
+.allButtons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: $background-color;
+  z-index: 1000;
 }
 
 .visible-flex {
-  display: flex !important;
+  display: flex;
 }
 
 .visible-grid {
-  display: grid !important;
+  display: grid;
+}
+.hidden {
+  display: none;
 }
