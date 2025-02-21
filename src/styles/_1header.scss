@@ -82,17 +82,19 @@ header {
   align-items: center;
   gap: 5px;
   margin-bottom: 10px;
+  width: 100%;
 }
 .kryg {
   flex: 0 0 auto;
-  width: 80px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 30%;
   border: 2px solid gray;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 13px;
 }
 .workTime {
   color: rgb(152, 147, 147);

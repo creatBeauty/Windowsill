@@ -18,9 +18,9 @@
 
 .buttonForSlider {
   position: absolute;
-  width: 90vw;
-  top: 60%;
-  left: 4%;
+  width: 80vw;
+  top: 50%;
+
   transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
@@ -33,13 +33,12 @@
     background: transparent;
     color: white;
     border: none;
-    width: 70px;
-    height: 70px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 50px;
     border-radius: 5px;
     transition: background 0.3s;
-    font-size: 50px;
 
     &:hover {
       background: rgba(80, 79, 79, 0.3);
@@ -49,8 +48,8 @@
 .textSlider {
   position: absolute;
   width: 70vw;
-  top: 31%;
-  left: 6%;
+  top: 5px;
+  left: 5px;
   color: white;
   font-size: 20px;
   font-weight: 100;
