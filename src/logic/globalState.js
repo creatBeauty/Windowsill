@@ -84,5 +84,76 @@ export const setState = {
     );
     console.log('Товары в корзине:', state.basketItems);
     console.log('Информация о пользователе:', state.userInfo);
+    console.log('Площадь обработки:', this.calculateTotalArea());
+  },
+
+  calculateTotalArea() {
+    if (!state.basketItems || state.basketItems.length === 0) {
+      console.log('Корзина пуста');
+      return 0;
+    }
+
+    const totalArea = state.basketItems.reduce((sum, item) => {
+      console.log('Обрабатываем item:', item);
+      if (!item.sizes || !Array.isArray(item.sizes)) {
+        console.warn('Некорректный формат item.sizes:', item);
+        return sum;
+      }
+
+      const itemTotalArea = item.sizes.reduce((itemSum, size) => {
+        console.log('Обрабатываем размер:', size);
+        // Обработка строки формата "300X2000" или "300_2000"
+        let width, length;
+
+        if (typeof size === 'string') {
+          // Если строка содержит пробел, разбиваем на отдельные размеры
+          const sizeArray = size.split(' ');
+
+          // Обрабатываем каждый размер в строке
+          return sizeArray.reduce((sizeSum, singleSize) => {
+            // Игнорируем размер "0_0"
+            if (singleSize === '0_0') {
+              return sizeSum;
+            }
+
+            // Поддержка обоих форматов разделителей: X и _
+            const dimensions = singleSize.includes('X')
+              ? singleSize.split('X')
+              : singleSize.split('_');
+
+            width = Number(dimensions[0]);
+            length = Number(dimensions[1]);
+
+            if (isNaN(width) || isNaN(length)) {
+              console.warn('Некорректные размеры:', singleSize);
+              return sizeSum;
+            }
+
+            const area = width * length;
+            console.log(
+              `Вычисленная площадь для размера ${singleSize}: ${area}`
+            );
+            return sizeSum + area;
+          }, itemSum);
+        } else {
+          width = Number(size.width);
+          length = Number(size.length);
+
+          if (isNaN(width) || isNaN(length)) {
+            console.warn('Некорректные размеры:', size);
+            return itemSum;
+          }
+
+          const area = width * length;
+          console.log(`Вычисленная площадь для размера: ${area}`);
+          return itemSum + area;
+        }
+      }, 0);
+
+      return sum + itemTotalArea;
+    }, 0);
+
+    console.log('Вычисленная общая площадь:', totalArea);
+    return totalArea;
   },
 };

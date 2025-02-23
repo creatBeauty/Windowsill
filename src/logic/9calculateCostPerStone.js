@@ -17,9 +17,15 @@ function COST() {
     console.log('Data for cutting:', dataForCutting);
     let messageInfo = document.getElementById('messageInfo');
 
-    // Сохраняем результат раскроя
+    // First, create the cutting result
     cuttingResult = createCutting(dataForCutting);
     console.log('Cutting:', cuttingResult);
+
+    // Then calculate areas using the cutting result
+    const totalArea = setState.calculateTotalArea(); //Площадь обработки
+    const purchaseArea = cuttingResult.sheetsCount * 2781600; //Площадь закупки
+    let k = totalArea / purchaseArea;
+    console.log('Площадь обработки:', totalArea);
 
     // Создаем и отображаем элемент с количеством листов
     const sheetsCountDisplay = document.createElement('div');
@@ -34,9 +40,13 @@ function COST() {
 
     // Вычисляем и отображаем общую стоимость
     if (state.selectedStone && state.selectedStone.price) {
-      const totalCost = cuttingResult.sheetsCount * state.selectedStone.price;
+      const totalCost = Math.round(
+        cuttingResult.sheetsCount * state.selectedStone.price +
+          cuttingResult.sheetsCount * state.selectedStone.price * k +
+          3000
+      );
       const costDisplay = document.createElement('div');
-      costDisplay.textContent = ` ${totalCost} ₽`;
+      costDisplay.textContent = ` ${totalCost} ₽`; //Общая стоимость
       costOfTheOrder.appendChild(costDisplay);
 
       // Форматируем текущие значения из формы

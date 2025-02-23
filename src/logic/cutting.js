@@ -46,14 +46,12 @@ function simpleCutting(tiles) {
   }
 
   tiles.sort((a, b) => {
-    const areaA = a.width * a.height;
-    const areaB = b.width * b.height;
-    if (Math.abs(areaA - areaB) > 1000) {
-      return areaB - areaA;
+    // First sort by height (prioritize taller pieces)
+    if (Math.abs(a.height - b.height) > 100) {
+      return b.height - a.height;
     }
-    const ratioA = Math.max(a.width / a.height, a.height / a.width);
-    const ratioB = Math.max(b.width / b.height, b.height / b.width);
-    return ratioB - ratioA;
+    // Then by width for pieces of similar height
+    return b.width - a.width;
   });
 
   const result = [];
@@ -61,74 +59,70 @@ function simpleCutting(tiles) {
   let remainingTiles = [...tiles];
 
   function tryPlaceTile(tile, baseY) {
-    // Находим все размещенные детали на текущем листе
+    // Add initial boundary check
+    if (tile.width > SHEET_WIDTH || tile.height > SHEET_HEIGHT) {
+      console.warn(
+        `Tile ${tile.id} (${tile.width}x${tile.height}) exceeds sheet dimensions`
+      );
+      return { x: null, y: null, rotated: false };
+    }
+
     const placedOnSheet = result.filter(
       (placed) =>
         Math.floor(placed.y / (SHEET_HEIGHT + SHEET_GAP)) === currentSheet
     );
 
-    // Находим самую правую высокую деталь
-    const tallPieces = placedOnSheet
-      .filter((p) => p.height > 1500)
-      .sort((a, b) => b.x + b.width - (a.x + a.width));
+    // Try to place tall pieces first, side by side
+    if (tile.height > 500) {
+      // For pieces like 810mm height
+      const x = placedOnSheet.reduce(
+        (maxX, placed) => Math.max(maxX, placed.x + placed.width),
+        0
+      );
 
-    // Если есть высокие детали и текущая деталь достаточно маленькая
-    if (tallPieces.length > 0 && tile.height < 1000) {
-      const rightmostTall = tallPieces[0];
-      const x = rightmostTall.x + rightmostTall.width + PART_SPACING;
-
-      // Проверяем, поместится ли деталь справа
       if (x + tile.width + PART_SPACING <= SHEET_WIDTH) {
-        let canPlace = true;
-
-        // Проверяем пересечения
-        for (const placed of placedOnSheet) {
-          if (
-            !(
-              x + tile.width + PART_SPACING <= placed.x ||
-              x >= placed.x + placed.width + PART_SPACING ||
-              baseY + tile.height + PART_SPACING <= placed.y ||
-              baseY >= placed.y + placed.height + PART_SPACING
-            )
-          ) {
-            canPlace = false;
-            break;
-          }
-        }
-
-        if (canPlace) {
-          return {
-            x: x,
-            y: baseY,
-            rotated: false,
-          };
-        }
+        return {
+          x: x + PART_SPACING,
+          y: baseY,
+          rotated: false,
+        };
       }
+    }
 
-      // Пробуем повернуть деталь
-      if (x + tile.height + PART_SPACING <= SHEET_WIDTH) {
-        let canPlace = true;
+    // For smaller pieces, try to place them above the tall pieces
+    if (tile.height <= 500) {
+      const tallPieces = placedOnSheet.filter((p) => p.height > 500);
+      if (tallPieces.length > 0) {
+        // Try to place above tall pieces
+        for (let placed of tallPieces) {
+          const x = placed.x;
+          const y = baseY + placed.height + PART_SPACING;
 
-        for (const placed of placedOnSheet) {
-          if (
-            !(
-              x + tile.height + PART_SPACING <= placed.x ||
-              x >= placed.x + placed.width + PART_SPACING ||
-              baseY + tile.width + PART_SPACING <= placed.y ||
-              baseY >= placed.y + placed.height + PART_SPACING
-            )
-          ) {
-            canPlace = false;
-            break;
+          if (y + tile.height <= baseY + 915) {
+            // Check if within 0.25 sheet
+            let canPlace = true;
+            // Check for intersections
+            for (let other of placedOnSheet) {
+              if (
+                !(
+                  x + tile.width <= other.x ||
+                  x >= other.x + other.width ||
+                  y + tile.height <= other.y ||
+                  y >= other.y + other.height
+                )
+              ) {
+                canPlace = false;
+                break;
+              }
+            }
+            if (canPlace) {
+              return {
+                x: x,
+                y: y,
+                rotated: false,
+              };
+            }
           }
-        }
-
-        if (canPlace) {
-          return {
-            x: x,
-            y: baseY,
-            rotated: true,
-          };
         }
       }
     }
@@ -162,13 +156,19 @@ function simpleCutting(tiles) {
 
       possibleX = [...new Set(possibleX)].sort((a, b) => a - b);
 
+      // Update the y-loop condition to ensure strict boundary check
       for (
         let y = baseY;
-        y < baseY + SHEET_HEIGHT - orientation.h;
+        y <= baseY + SHEET_HEIGHT - orientation.h;
         y += SPACING
       ) {
         for (let x of possibleX) {
-          if (x + orientation.w > SHEET_WIDTH) continue;
+          // Add strict boundary check
+          if (
+            x + orientation.w > SHEET_WIDTH ||
+            y + orientation.h > baseY + SHEET_HEIGHT
+          )
+            continue;
 
           let canPlace = true;
 
