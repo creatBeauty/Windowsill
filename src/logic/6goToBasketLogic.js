@@ -21,7 +21,6 @@ function _6goToBasketLogic() {
     let outputSelectedWindowSills = document.getElementById(
       'outputSelectedWindowSills'
     );
-    let messageInfo = document.getElementById('messageInfo');
 
     outputColorStone.textContent = state.selectedStone.name;
     priceForList.textContent = state.selectedStone.price;
@@ -32,11 +31,6 @@ function _6goToBasketLogic() {
       outputSelectedWindowSills.textContent = state.basketItems
         .map((item) => formatDimensions(item))
         .join(', ');
-
-      // Форматируем текущие значения из формы
-      messageInfo.textContent = `Прошу выставить счет за подоконники ${state.basketItems
-        .map((item) => formatDimensions(item))
-        .join(', ')} ${state.selectedStone.name}`;
     }
   });
 }

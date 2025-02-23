@@ -6,11 +6,16 @@ const getCost = document.getElementById('getCost'); //Кнопка
 const costOfTheOrder = document.getElementById('costOfTheOrder'); //место для записи
 let cuttingResult; // Глобальная переменная для хранения результата раскроя
 
+function formatDimensions(item) {
+  return `${item.length}x${item.width}`;
+}
+
 function COST() {
   // Обработчик для кнопки расчета стоимости
   getCost.addEventListener('click', () => {
     let dataForCutting = prepareDataForCutting(state.basketItems);
     console.log('Data for cutting:', dataForCutting);
+    let messageInfo = document.getElementById('messageInfo');
 
     // Сохраняем результат раскроя
     cuttingResult = createCutting(dataForCutting);
@@ -33,6 +38,11 @@ function COST() {
       const costDisplay = document.createElement('div');
       costDisplay.textContent = ` ${totalCost} ₽`;
       costOfTheOrder.appendChild(costDisplay);
+
+      // Форматируем текущие значения из формы
+      messageInfo.textContent = `Прошу выставить счет за подоконники ${state.basketItems
+        .map((item) => formatDimensions(item))
+        .join(', ')} ${state.selectedStone.name} ${costDisplay.textContent}`;
     }
   });
 
