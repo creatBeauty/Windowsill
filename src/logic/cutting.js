@@ -72,6 +72,44 @@ function simpleCutting(tiles) {
         Math.floor(placed.y / (SHEET_HEIGHT + SHEET_GAP)) === currentSheet
     );
 
+    // Специальная обработка для деталей id 6 и 7
+    if (tile.id === '6' || tile.id === '7') {
+      // Ищем соответствующую деталь (3 для 6, 2 для 7)
+      const targetId = tile.id === '6' ? '3' : '2';
+      const targetTile = placedOnSheet.find((placed) => placed.id === targetId);
+
+      if (targetTile) {
+        const newX = targetTile.x;
+        const newY = targetTile.y + targetTile.height + PART_SPACING;
+
+        // Проверяем, что не выходим за пределы листа
+        if (
+          newY + tile.height <= baseY + SHEET_HEIGHT - PART_SPACING &&
+          newX + tile.width <= SHEET_WIDTH - PART_SPACING
+        ) {
+          // Проверяем пересечения с другими деталями
+          let canPlace = true;
+          for (let other of placedOnSheet) {
+            if (other.id === targetId) continue;
+            if (
+              !(
+                newX + tile.width <= other.x ||
+                newX >= other.x + other.width ||
+                newY + tile.height <= other.y ||
+                newY >= other.y + other.height
+              )
+            ) {
+              canPlace = false;
+              break;
+            }
+          }
+          if (canPlace) {
+            return { x: newX, y: newY, rotated: false };
+          }
+        }
+      }
+    }
+
     // Try to place tall pieces first, side by side
     if (tile.height > 500) {
       // For pieces like 810mm height
@@ -124,6 +162,77 @@ function simpleCutting(tiles) {
             }
           }
         }
+      }
+    }
+
+    // Специальная обработка для узких горизонтальных деталей
+    if (tile.height <= 50 && tile.width <= SHEET_WIDTH) {
+      const existingTilesOnSheet = result.filter(
+        (placed) =>
+          Math.floor(placed.y / (SHEET_HEIGHT + SHEET_GAP)) === currentSheet
+      );
+
+      // Сначала ищем похожую деталь с такими же размерами
+      const similarTile = existingTilesOnSheet.find(
+        (placed) =>
+          placed.width === tile.width &&
+          placed.height === tile.height &&
+          !placed.rotated
+      );
+
+      if (similarTile) {
+        // Пробуем разместить прямо под похожей деталью
+        const newY = similarTile.y + similarTile.height + PART_SPACING;
+        const newX = similarTile.x;
+
+        // Проверяем, что новая позиция в пределах листа
+        if (newY + tile.height <= baseY + SHEET_HEIGHT - PART_SPACING) {
+          // Проверяем пересечения с другими деталями
+          let canPlace = true;
+          for (let other of existingTilesOnSheet) {
+            if (other === similarTile) continue;
+            if (
+              !(
+                newX + tile.width <= other.x ||
+                newX >= other.x + other.width ||
+                newY + tile.height <= other.y ||
+                newY >= other.y + other.height
+              )
+            ) {
+              canPlace = false;
+              break;
+            }
+          }
+          if (canPlace) {
+            return { x: newX, y: newY, rotated: false };
+          }
+        }
+      }
+
+      // Если не удалось разместить под похожей деталью, используем стандартную логику
+      let x = PART_SPACING;
+      let y = baseY + PART_SPACING;
+
+      while (y + tile.height <= baseY + SHEET_HEIGHT - PART_SPACING) {
+        let canPlace = true;
+        for (let other of existingTilesOnSheet) {
+          if (
+            !(
+              x + tile.width <= other.x ||
+              x >= other.x + other.width ||
+              y + tile.height <= other.y ||
+              y >= other.y + other.height
+            )
+          ) {
+            canPlace = false;
+            break;
+          }
+        }
+
+        if (canPlace) {
+          return { x, y, rotated: false };
+        }
+        y += SPACING;
       }
     }
 
