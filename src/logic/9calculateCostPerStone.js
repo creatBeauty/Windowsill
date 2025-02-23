@@ -21,7 +21,7 @@ function COST() {
     sheetsCountDisplay.style.fontSize = '24px';
     sheetsCountDisplay.style.color = 'black';
     sheetsCountDisplay.style.marginBottom = '20px';
-    sheetsCountDisplay.textContent = `Количество листов: ${cuttingResult.sheetsCount}`;
+    // sheetsCountDisplay.textContent = `Количество листов: ${cuttingResult.sheetsCount}`;
 
     // Очищаем предыдущее содержимое и добавляем новое отображение
     costOfTheOrder.innerHTML = '';
@@ -31,7 +31,7 @@ function COST() {
     if (state.selectedStone && state.selectedStone.price) {
       const totalCost = cuttingResult.sheetsCount * state.selectedStone.price;
       const costDisplay = document.createElement('div');
-      costDisplay.textContent = `Общая стоимость: ${totalCost} ₽`;
+      costDisplay.textContent = ` ${totalCost} ₽`;
       costOfTheOrder.appendChild(costDisplay);
     }
   });
