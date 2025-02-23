@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap");
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap'); */
 header {
   display: flex;
   flex-direction: column;
@@ -268,7 +268,7 @@ main {
   width: 90vw;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 50px repeat(auto-fit, 1fr);
-  grid-template-areas: "header header" "div1 div2" "div3 div4" "div5 div6" "div7 div8" "div9 div10" "div11 div12" "div13 div14" "div15 div16" "div17 div18" "div19 div20" "div21 div22" "button button";
+  grid-template-areas: 'header header' 'div1 div2' 'div3 div4' 'div5 div6' 'div7 div8' 'div9 div10' 'div11 div12' 'div13 div14' 'div15 div16' 'div17 div18' 'div19 div20' 'div21 div22' 'button button';
 }
 
 .grid-header {
@@ -292,9 +292,6 @@ main {
   transition: border 0.3s, filter 0.3s;
   border-radius: 25px;
 }
-.grid-element:hover {
-  border: 5px solid rgb(251, 222, 165);
-}
 
 .selected {
   border: 4px solid rgb(239, 139, 139); /* Стили для выбранной кнопки */
@@ -304,7 +301,7 @@ main {
   width: 100%; /* Занимает всю ширину контейнера */
   height: auto; /* Высота автоматически подстраивается */
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   /* Изображение масштабируется, сохраняя пропорции, обрезая края при необходимости */
 }
 
@@ -334,7 +331,8 @@ main {
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     background-color: rgba(105, 243, 137, 0.6);
     border: 3px solid rgba(105, 243, 137, 0.6); /* Исходный размер кнопки */
   }
@@ -418,7 +416,7 @@ main {
   margin-top: 0px;
   gap: 2px;
 }
-.aside-bottom .aside-input #message-info {
+.aside-bottom .aside-input #messageInfo {
   height: 80px;
 }
 
@@ -467,62 +465,116 @@ main {
   width: 100vw;
 }
 
-.footer {
+#figure {
+  position: relative;
+  min-height: 100vh;
+}
+
+.cutting-container {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.cutting-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#wrap {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #ccc;
+  margin: 0;
+  background: #fff;
+  padding: 10px;
+  overflow: auto;
+}
+#wrap::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+#wrap::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
+}
+#wrap::-webkit-scrollbar-thumb {
+  background: #2196f3;
+  border-radius: 6px;
+  border: 3px solid #f1f1f1;
+}
+#wrap::-webkit-scrollbar-thumb:hover {
+  background: #1976d2;
+}
+
+.sheet-container {
+  position: relative;
+  margin-bottom: 40px;
+  border: 2px solid #2196f3;
+  padding: 20px 10px;
+  background: #f5f5f5;
+  transform: scale(4);
+  transform-origin: top left;
+  margin-right: 300%;
+  margin-bottom: 300%;
+  overflow: auto;
+}
+.sheet-container::before {
+  content: 'Лист ' attr(data-sheet-number);
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: #2196f3;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  transform: scale(0.25);
+  transform-origin: left top;
+}
+
+.sheet {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  padding: 4px;
+  white-space: pre-line;
+  background: #fff;
 }
-.footer .footer-text-top {
-  color: rgb(71, 68, 81);
-  font-size: 15px;
-  margin-top: -5px;
+.sheet.used {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+  color: #0d47a1;
+  font-weight: bold;
+  z-index: 2;
+  transition: all 0.3s ease;
 }
-.footer .footer-top {
-  margin-top: 0px;
-  margin-bottom: 0px;
+.sheet.used:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-.footer .footer-input {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0px;
-  gap: 2px;
-}
-.footer .footer-input #message-info {
-  height: 80px;
+.sheet.contains {
+  background: rgba(200, 200, 200, 0.1);
+  border: 1px dashed #999;
+  z-index: 1;
 }
 
-.footerBottom {
-  display: flex;
-  justify-content: space-around;
-}
-.footerBottom .adress {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  gap: 0px;
-}
-.footerBottom .adress h3 {
-  margin-bottom: -10px;
-}
-.footerBottom .adress .adress h4 {
-  margin-top: 0;
-}
-.footerBottom #openMap {
-  border: none;
+.exit {
+  width: 100%;
+  padding: 15px;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  border-top: 1px solid #ccc;
   cursor: pointer;
-}
-.footerBottom #openMap :hover {
-  border: 4px solid rgb(233, 175, 175);
-  border-radius: 30px;
-  filter: blur(1px); /* Добавляет нечеткость */
-}
-.footerBottom #openMap img {
-  height: 60px;
-  width: 60px;
-}
-
-.footer-text-bottom {
-  margin: 0px;
+  margin: 0;
 }
 
 .button1 {
@@ -541,7 +593,7 @@ main {
 }
 
 .button2 {
-  width: 30%;
+  width: 40%;
   height: 40px;
   background-color: rgb(237, 204, 142);
   border-radius: 20px;
@@ -557,7 +609,7 @@ main {
 
 .button3 {
   width: 100%;
-  height: 20px;
+  height: 25px;
   background-color: rgb(250, 238, 216);
   border-radius: 20px;
   border: 1px solid gray;
@@ -586,7 +638,7 @@ main {
   max-width: 100%;
   height: auto;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .buttonForSlider {
@@ -624,7 +676,7 @@ main {
   font-size: 20px;
   font-weight: 100;
   font-style: normal;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 * {
@@ -668,4 +720,41 @@ html {
 
 .hidden {
   display: none;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+.cutting-visualization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cutting-container {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.cutting-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Убедиться, что используется локальный шрифт */
+@font-face {
+  font-family: 'Rubik Vinyl';
+  src: url('../fonts/RubikVinyl-Regular.woff2') format('woff2'),
+    url('../fonts/RubikVinyl-Regular.woff') format('woff');
+  font-display: swap;
+}

@@ -43,9 +43,6 @@
   border: none;
   transition: border 0.3s, filter 0.3s;
   border-radius: 25px;
-  &:hover {
-    border: 5px solid rgb(251, 222, 165);
-  }
 }
 
 .selected {

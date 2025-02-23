@@ -1,6 +1,6 @@
 //Абстракция, для отображения страницы
 
-export function logicViewsPage(pageId, displayType = 'visible-flex') {
+function logicViewsPage(pageId, displayType = 'visible-flex') {
   const pages = document.querySelectorAll('.page');
   pages.forEach((page) => {
     if (page.id === pageId) {
@@ -12,3 +12,4 @@ export function logicViewsPage(pageId, displayType = 'visible-flex') {
     }
   });
 }
+export { logicViewsPage };
