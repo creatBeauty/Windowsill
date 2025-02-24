@@ -575,8 +575,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(71, 69, 69);
-  color: white;
   font-size: 20px;
   font-weight: 400;
   margin-top: 20px;
