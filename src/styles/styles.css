@@ -362,6 +362,10 @@ main {
   width: 90vw;
 }
 
+.aside-windowSills div {
+  margin-top: 0px;
+}
+
 .sectionShoppingCart {
   display: flex;
   flex-direction: column;
@@ -423,6 +427,9 @@ main {
   flex-direction: column;
   align-items: center;
 }
+.aside-bottom h3 {
+  margin: 0px;
+}
 .aside-bottom .aside-text-top {
   color: rgb(71, 68, 81);
   font-size: 15px;
@@ -437,6 +444,7 @@ main {
 }
 .aside-bottom .aside-input .pole {
   width: 90%;
+  height: 30px;
 }
 .aside-bottom .aside-input #messageInfo {
   height: 80px;

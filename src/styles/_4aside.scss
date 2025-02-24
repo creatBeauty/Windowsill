@@ -3,6 +3,11 @@
 #aside {
   width: 90vw;
 }
+.aside-windowSills {
+  div {
+    margin-top: 0px;
+  }
+}
 .sectionShoppingCart {
   display: flex;
   flex-direction: column;
@@ -64,6 +69,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  h3 {
+    margin: -0px;
+  }
   .aside-text-top {
     color: $minitext-color;
     font-size: 15px;
@@ -77,6 +85,7 @@
     gap: 2px;
     .pole {
       width: 90%;
+      height: 30px;
     }
     #messageInfo {
       height: 80px;

@@ -47,7 +47,7 @@ function COST() {
           cuttingResult.sheetsCount * state.selectedStone.price * 0.3
       ); //Стоимость материала+Стоимость изготовления+Стоимость доставки+Стоимость клея
       const costDisplay = document.createElement('div');
-      costDisplay.textContent = ` ${totalCost} ₽`; //Общая стоимость
+      costDisplay.textContent = ` ${totalCost} P`; //Общая стоимость
       costOfTheOrder.appendChild(costDisplay);
 
       // Форматируем текущие значения из формы
