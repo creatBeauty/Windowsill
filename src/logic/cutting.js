@@ -8,6 +8,7 @@ const SPACING = 15;
 const SHEET_GAP = 100; // Отступ для деталей
 const SHEET_VISUAL_GAP = -2000; // Визуальный отступ между листами
 const PART_SPACING = 20; // Отступ для деталей
+const SCALE_FACTOR = 3; // Коэффициент масштабирования визуализации
 let SHEETS_COUNT = 0; // Начальное количество листов
 
 function calculateSheetsCount(tiles) {
@@ -367,23 +368,13 @@ function visualizeTiles(tiles) {
 
   // Очищаем предыдущую визуализацию
   cuttingVisualization.innerHTML = '';
-
-  // Обновляем стили контейнера
-  cuttingVisualization.style.display = 'flex';
-  cuttingVisualization.style.flexDirection = 'column';
-  cuttingVisualization.style.alignItems = 'center';
-  cuttingVisualization.style.gap = '20px';
-  cuttingVisualization.style.padding = '20px';
+  cuttingVisualization.className = 'cutting-visualization';
 
   // Добавляем информацию о количестве листов
   const sheetsCountDisplay = document.createElement('div');
-  sheetsCountDisplay.style.fontSize = '24px';
-  sheetsCountDisplay.style.marginBottom = '20px';
-  sheetsCountDisplay.style.textAlign = 'center';
-  sheetsCountDisplay.style.padding = '10px';
-  sheetsCountDisplay.style.backgroundColor = '#f8f9fa';
-  sheetsCountDisplay.style.borderRadius = '4px';
-  sheetsCountDisplay.textContent = `Общее количество листов: ${SHEETS_COUNT}`;
+  sheetsCountDisplay.className = 'sheets-count';
+  sheetsCountDisplay.style.marginTop = '0';
+  sheetsCountDisplay.textContent = `Требуется листов: ${SHEETS_COUNT}`;
   cuttingVisualization.appendChild(sheetsCountDisplay);
 
   // Создаем контейнер для каждого листа
@@ -399,44 +390,32 @@ function visualizeTiles(tiles) {
   // Создаем визуализацию для каждого листа
   Object.entries(sheets).forEach(([sheetNumber, sheetTiles]) => {
     const sheetWrapper = document.createElement('div');
-    sheetWrapper.style.width = '100%';
-    sheetWrapper.style.display = 'flex';
-    sheetWrapper.style.flexDirection = 'column';
-    sheetWrapper.style.alignItems = 'center';
-    sheetWrapper.style.marginBottom = '40px';
+    sheetWrapper.className = 'sheet-wrapper';
 
     const sheetLabel = document.createElement('div');
+    sheetLabel.className = 'sheet-label';
     sheetLabel.textContent = `Лист ${parseInt(sheetNumber) + 1}`;
-    sheetLabel.style.fontSize = '24px';
-    sheetLabel.style.marginBottom = '10px';
     sheetWrapper.appendChild(sheetLabel);
 
     const sheetContainer = document.createElement('div');
-    sheetContainer.style.position = 'relative';
-    sheetContainer.style.width = '380px'; // Половина оригинальной ширины
-    sheetContainer.style.height = '1830px'; // Половина оригинальной высоты
-    sheetContainer.style.border = '2px solid black';
-    sheetContainer.style.backgroundColor = '#f0f0f0';
-    sheetContainer.style.transform = 'scale(0.5)';
-    sheetContainer.style.transformOrigin = 'top center';
-    sheetContainer.style.margin = '20px 0';
+    sheetContainer.className = 'sheet-container';
+
+    // Вычисляем масштаб для полной ширины
+    const containerWidth = window.innerWidth - 80;
+    const scale = (containerWidth / 760) * SCALE_FACTOR;
 
     // Добавляем детали на лист
     sheetTiles.forEach((tile) => {
       const tileElement = document.createElement('div');
-      tileElement.style.position = 'absolute';
-      tileElement.style.left = `${tile.x / 2}px`; // Масштабируем координаты
-      tileElement.style.top = `${
-        (tile.y - sheetNumber * (SHEET_HEIGHT + SHEET_GAP)) / 2
-      }px`;
-      tileElement.style.width = `${tile.width / 2}px`;
-      tileElement.style.height = `${tile.height / 2}px`;
-      tileElement.style.border = '1px solid blue';
-      tileElement.style.backgroundColor = 'rgba(0, 0, 255, 0.1)';
-      tileElement.style.display = 'flex';
-      tileElement.style.alignItems = 'center';
-      tileElement.style.justifyContent = 'center';
-      tileElement.style.fontSize = '24px'; // Уменьшенный размер шрифта
+      tileElement.className = 'tile-element';
+
+      // Позиционирование тайла
+      const tileY = tile.y - sheetNumber * (SHEET_HEIGHT + SHEET_GAP);
+      tileElement.style.left = `${tile.x}px`;
+      tileElement.style.top = `${tileY}px`;
+      tileElement.style.width = `${tile.width}px`;
+      tileElement.style.height = `${tile.height}px`;
+
       tileElement.innerHTML = `ID: ${tile.id}<br>${tile.width}x${tile.height}`;
       sheetContainer.appendChild(tileElement);
     });
