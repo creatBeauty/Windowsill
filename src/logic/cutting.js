@@ -73,91 +73,62 @@ function simpleCutting(tiles) {
         Math.floor(placed.y / (SHEET_HEIGHT + SHEET_GAP)) === currentSheet
     );
 
-    // Специальная обработка для деталей id 6 и 7
-    if (tile.id === '6' || tile.id === '7') {
-      // Ищем соответствующую деталь (3 для 6, 2 для 7)
-      const targetId = tile.id === '6' ? '3' : '2';
-      const targetTile = placedOnSheet.find((placed) => placed.id === targetId);
+    // Special handling for tall pieces (height > width)
+    if (tile.height > tile.width) {
+      const totalSetWidth = tile.width * 2 + PART_SPACING; // 310*2 + 20 = 640
 
-      if (targetTile) {
-        const newX = targetTile.x;
-        const newY = targetTile.y + targetTile.height + PART_SPACING;
+      if (totalSetWidth <= SHEET_WIDTH) {
+        const x = placedOnSheet.reduce(
+          (maxX, placed) => Math.max(maxX, placed.x + placed.width),
+          0
+        );
 
-        // Проверяем, что не выходим за пределы листа
-        if (
-          newY + tile.height <= baseY + SHEET_HEIGHT - PART_SPACING &&
-          newX + tile.width <= SHEET_WIDTH - PART_SPACING
-        ) {
-          // Проверяем пересечения с другими деталями
-          let canPlace = true;
-          for (let other of placedOnSheet) {
-            if (other.id === targetId) continue;
-            if (
-              !(
-                newX + tile.width <= other.x ||
-                newX >= other.x + other.width ||
-                newY + tile.height <= other.y ||
-                newY >= other.y + other.height
-              )
-            ) {
-              canPlace = false;
-              break;
-            }
-          }
-          if (canPlace) {
-            return { x: newX, y: newY, rotated: false };
-          }
+        if (x + tile.width + PART_SPACING <= SHEET_WIDTH) {
+          return {
+            x: x + PART_SPACING,
+            y: baseY,
+            rotated: false,
+          };
         }
       }
     }
 
-    // Try to place tall pieces first, side by side
-    if (tile.height > 500) {
-      // For pieces like 810mm height
-      const x = placedOnSheet.reduce(
-        (maxX, placed) => Math.max(maxX, placed.x + placed.width),
-        0
-      );
-
-      if (x + tile.width + PART_SPACING <= SHEET_WIDTH) {
-        return {
-          x: x + PART_SPACING,
-          y: baseY,
-          rotated: false,
-        };
-      }
-    }
-
-    // For smaller pieces, try to place them above the tall pieces
-    if (tile.height <= 500) {
-      const tallPieces = placedOnSheet.filter((p) => p.height > 500);
+    // Special handling for horizontal pieces (height <= 50)
+    if (tile.height <= 50) {
+      const tallPieces = placedOnSheet.filter((p) => p.height > p.width);
       if (tallPieces.length > 0) {
-        // Try to place above tall pieces
-        for (let placed of tallPieces) {
-          const x = placed.x;
-          const y = baseY + placed.height + PART_SPACING;
+        const totalSetWidth = tallPieces[0].width * 2 + PART_SPACING; // 310*2 + 20 = 640
 
-          if (y + tile.height <= baseY + 915) {
-            // Check if within 0.25 sheet
-            let canPlace = true;
-            // Check for intersections
-            for (let other of placedOnSheet) {
-              if (
-                !(
-                  x + tile.width <= other.x ||
-                  x >= other.x + other.width ||
-                  y + tile.height <= other.y ||
-                  y >= other.y + other.height
-                )
-              ) {
-                canPlace = false;
-                break;
-              }
-            }
-            if (canPlace) {
+        if (totalSetWidth <= SHEET_WIDTH) {
+          // Find matching tall piece for this horizontal piece
+          let targetTallPiece = null;
+
+          // Детали 2 и 3 идут под первой высокой деталью
+          if (tile.id === '2' || tile.id === '3') {
+            targetTallPiece = tallPieces[0];
+          }
+          // Детали 6 и 7 идут под второй высокой деталью
+          else if (tile.id === '6' || tile.id === '7') {
+            targetTallPiece = tallPieces[1];
+          }
+
+          if (targetTallPiece) {
+            const existingHorizontalPieces = placedOnSheet.filter(
+              (p) =>
+                p.height <= 50 &&
+                p.x === targetTallPiece.x &&
+                p.y > targetTallPiece.y
+            );
+
+            if (existingHorizontalPieces.length < 2) {
               return {
-                x: x,
-                y: y,
+                x: targetTallPiece.x,
+                y:
+                  baseY +
+                  targetTallPiece.height +
+                  PART_SPACING +
+                  existingHorizontalPieces.length *
+                    (tile.height + PART_SPACING),
                 rotated: false,
               };
             }
