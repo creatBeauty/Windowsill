@@ -358,6 +358,10 @@ main {
     border: 3px solid rgba(105, 243, 137, 0.9); /* Увеличение размера кнопки */
   }
 }
+#aside {
+  width: 90vw;
+}
+
 .sectionShoppingCart {
   display: flex;
   flex-direction: column;
@@ -431,11 +435,11 @@ main {
   gap: 2px;
 }
 .aside-bottom .aside-input .pole {
-  width: 98%;
+  width: 90%;
 }
 .aside-bottom .aside-input #messageInfo {
   height: 80px;
-  width: 98%;
+  width: 90%;
 }
 
 .asideBottom {
@@ -604,7 +608,7 @@ footer {
 }
 
 .button3 {
-  width: 98%;
+  width: 90%;
   height: 25px;
   background-color: rgb(250, 238, 216);
   border-radius: 20px;

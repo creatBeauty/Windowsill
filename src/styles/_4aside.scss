@@ -1,5 +1,8 @@
 @use 'variables' as *;
 
+#aside {
+  width: 90vw;
+}
 .sectionShoppingCart {
   display: flex;
   flex-direction: column;
@@ -72,11 +75,11 @@
     margin-top: 0px;
     gap: 2px;
     .pole {
-      width: 98%;
+      width: 90%;
     }
     #messageInfo {
       height: 80px;
-      width: 98%;
+      width: 90%;
     }
   }
 }
