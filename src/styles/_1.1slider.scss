@@ -6,14 +6,16 @@
   overflow: hidden;
   width: 30%;
   height: auto;
-  max-height: 400px;
   margin: 20px 0;
 }
 
 .slider-image {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+
   object-fit: contain;
+  display: block;
+  flex-shrink: 0;
 }
 
 .buttonForSlider {

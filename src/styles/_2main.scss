@@ -98,10 +98,7 @@ main {
   flex-direction: column;
 
   gap: 1px;
-  & button {
-    width: 100%;
-    height: $input-button-height;
-  }
+
   .calculator-button-classic {
     background-color: $button-background;
     font-size: $font-size;
