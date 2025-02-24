@@ -12,6 +12,7 @@ header {
   color: rgb(246, 146, 47);
   font-size: 30px;
   font-weight: 400;
+  margin-top: 10px;
 }
 .headerTop h3 {
   display: flex;
@@ -19,6 +20,7 @@ header {
   color: rgb(246, 146, 47);
   font-size: 20px;
   font-weight: 100;
+  margin-top: -30px;
 }
 
 .headerBottom {
