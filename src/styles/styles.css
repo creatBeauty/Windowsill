@@ -3,6 +3,7 @@
 header {
   display: flex;
   flex-direction: column;
+  margin-top: -30px;
 }
 
 .headerTop h2 {
@@ -11,8 +12,6 @@ header {
   color: rgb(246, 146, 47);
   font-size: 30px;
   font-weight: 400;
-  margin-bottom: -20px;
-  margin-top: -10px;
 }
 .headerTop h3 {
   display: flex;
@@ -260,22 +259,38 @@ main {
 .grid-2 {
   display: grid;
   gap: 10px;
-  height: 100vh;
-  margin: 0 auto; /* Центрирование контейнера */
+  height: auto;
+  min-height: 100vh;
+  margin: 0 auto;
   width: 90vw;
+  padding-bottom: 120px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 50px repeat(auto-fit, 1fr);
+  overflow-y: scroll !important;
+  position: relative;
+  padding-top: 80px;
+  margin-bottom: 70px;
   grid-template-areas: "header header" "div1 div2" "div3 div4" "div5 div6" "div7 div8" "div9 div10" "div11 div12" "div13 div14" "div15 div16" "div17 div18" "div19 div20" "div21 div22" "button button";
 }
 
 .grid-header {
   grid-area: header;
   font-size: 30px;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #717790;
   color: #fff;
+  z-index: 10;
+  position: fixed;
+  width: 90vw;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-radius: 5px;
 }
 
 .grid-element {
@@ -283,7 +298,9 @@ main {
   flex-direction: column-reverse;
   width: 100%;
   height: 100%;
+  min-height: 200px;
   padding: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
   border: none;
   transition: border 0.3s, filter 0.3s;
@@ -315,8 +332,11 @@ main {
   border: none;
   animation: pulse 1.5s infinite;
   position: fixed;
-  bottom: 50px;
-  width: 100wh;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 90vw;
   border-radius: 25px;
   background-color: transparent;
   z-index: 1000;
@@ -402,18 +422,18 @@ main {
   font-size: 15px;
   margin-top: -5px;
 }
-.aside-bottom .aside-top {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
 .aside-bottom .aside-input {
   display: flex;
   flex-direction: column;
   margin-top: 0px;
   gap: 2px;
 }
+.aside-bottom .aside-input .pole {
+  width: 98%;
+}
 .aside-bottom .aside-input #messageInfo {
   height: 80px;
+  width: 98%;
 }
 
 .asideBottom {
@@ -429,9 +449,6 @@ main {
 .asideBottom .adress h3 {
   margin-bottom: -10px;
 }
-.asideBottom .adress .adress h4 {
-  margin-top: 0;
-}
 .asideBottom #openMap {
   border: none;
   cursor: pointer;
@@ -439,7 +456,7 @@ main {
 .asideBottom #openMap :hover {
   border: 4px solid rgb(233, 175, 175);
   border-radius: 30px;
-  filter: blur(1px); /* Добавляет нечеткость */
+  filter: blur(1px);
 }
 .asideBottom #openMap img {
   height: 60px;

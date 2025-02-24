@@ -16,7 +16,7 @@
     ></script>
 
     <!-- Mailjs -->
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       (function () {
         // https://dashboard.emailjs.com/admin/account
         emailjs.init({
@@ -528,11 +528,26 @@
         <div class="aside-input">
           <form id="contact-form" class="aside-input">
             <!-- To simplify the tutorial, the value is static. -->
-            <input type="hidden" name="contact_number" value="697483" />
+            <input
+              class="pole"
+              type="text"
+              name="contact_number"
+              placeholder="тел."
+            />
 
-            <input type="text" name="user_name" placeholder="ФИО" />
+            <input
+              class="pole"
+              type="text"
+              name="user_name"
+              placeholder="ФИО"
+            />
 
-            <input type="email" name="user_email" placeholder="почта" />
+            <input
+              class="pole"
+              type="email"
+              name="user_email"
+              placeholder="почта"
+            />
 
             <textarea id="messageInfo" name="message"></textarea>
             <input

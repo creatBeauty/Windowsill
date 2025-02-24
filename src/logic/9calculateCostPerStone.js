@@ -7,7 +7,7 @@ const costOfTheOrder = document.getElementById('costOfTheOrder'); //место �
 let cuttingResult; // Глобальная переменная для хранения результата раскроя
 
 function formatDimensions(item) {
-  return `${item.length}x${item.width}`;
+  return `${item.length}x${item.width}x${item.thickness}-${item.count}`;
 }
 
 function COST() {

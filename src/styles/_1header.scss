@@ -3,6 +3,7 @@
 header {
   display: flex;
   flex-direction: column;
+  margin-top: -30px;
 }
 .headerTop {
   h2 {
@@ -11,8 +12,6 @@ header {
     color: $font-color;
     font-size: 30px;
     font-weight: 400;
-    margin-bottom: -20px;
-    margin-top: -10px;
   }
   h3 {
     display: flex;
