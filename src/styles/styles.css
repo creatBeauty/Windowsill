@@ -432,6 +432,7 @@ main {
   display: flex;
   flex-direction: column;
   margin-top: 0px;
+  margin-left: 15px;
   gap: 2px;
 }
 .aside-bottom .aside-input .pole {
@@ -471,6 +472,10 @@ main {
 
 .aside-text-bottom {
   margin: 0px;
+}
+
+#request {
+  font-size: 15px;
 }
 
 #section {
