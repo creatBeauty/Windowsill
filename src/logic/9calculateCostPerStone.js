@@ -43,8 +43,9 @@ function COST() {
       const totalCost = Math.round(
         cuttingResult.sheetsCount * state.selectedStone.price +
           cuttingResult.sheetsCount * state.selectedStone.price * k +
-          3000
-      );
+          3000 +
+          cuttingResult.sheetsCount * state.selectedStone.price * 0.3
+      ); //Стоимость материала+Стоимость изготовления+Стоимость доставки+Стоимость клея
       const costDisplay = document.createElement('div');
       costDisplay.textContent = ` ${totalCost} ₽`; //Общая стоимость
       costOfTheOrder.appendChild(costDisplay);

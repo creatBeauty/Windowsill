@@ -40,285 +40,195 @@ function calculateSheetsCount(tiles) {
   return fullSheets + partialSheet; // Убрали +1, так как fullSheets уже включает первый лист
 }
 
-function simpleCutting(tiles) {
-  // Если количество листов 0, устанавливаем 1 лист для начала работы
-  if (SHEETS_COUNT === 0) {
-    SHEETS_COUNT = 1;
-  }
+function guillotineCutting(tiles) {
+  tiles.sort((a, b) => b.height - a.height);
 
-  tiles.sort((a, b) => {
-    // First sort by height (prioritize taller pieces)
-    if (Math.abs(a.height - b.height) > 100) {
-      return b.height - a.height;
+  class FreeRectangle {
+    constructor(x, y, width, height) {
+      this.x = x;
+      this.y = y;
+      this.width = width;
+      this.height = height;
     }
-    // Then by width for pieces of similar height
-    return b.width - a.width;
-  });
+
+    // Проверка пересечения с другим прямоугольником
+    intersects(rect) {
+      return !(
+        this.x + this.width <= rect.x ||
+        rect.x + rect.width <= this.x ||
+        this.y + this.height <= rect.y ||
+        rect.y + rect.height <= this.y
+      );
+    }
+  }
 
   const result = [];
   let currentSheet = 0;
-  let remainingTiles = [...tiles];
+  let freeRectangles = [new FreeRectangle(0, 0, SHEET_WIDTH, SHEET_HEIGHT)];
 
-  function tryPlaceTile(tile, baseY) {
-    // Add initial boundary check
-    if (tile.width > SHEET_WIDTH || tile.height > SHEET_HEIGHT) {
-      console.warn(
-        `Tile ${tile.id} (${tile.width}x${tile.height}) exceeds sheet dimensions`
-      );
-      return { x: null, y: null, rotated: false };
-    }
+  // Находит все максимальные свободные прямоугольники после размещения детали
+  function findMaximalRectangles(placedRect) {
+    const newRectangles = [];
 
-    const placedOnSheet = result.filter(
-      (placed) =>
-        Math.floor(placed.y / (SHEET_HEIGHT + SHEET_GAP)) === currentSheet
-    );
+    // Проверяем каждый существующий свободный прямоугольник
+    for (const free of freeRectangles) {
+      if (free.intersects(placedRect)) {
+        // Создаем до 4 новых прямоугольников вокруг размещенной детали
 
-    // Special handling for tall pieces (height > width)
-    if (tile.height > tile.width) {
-      const totalSetWidth = tile.width * 2 + PART_SPACING; // 310*2 + 20 = 640
-
-      if (totalSetWidth <= SHEET_WIDTH) {
-        const x = placedOnSheet.reduce(
-          (maxX, placed) => Math.max(maxX, placed.x + placed.width),
-          0
-        );
-
-        if (x + tile.width + PART_SPACING <= SHEET_WIDTH) {
-          return {
-            x: x + PART_SPACING,
-            y: baseY,
-            rotated: false,
-          };
+        // Прямоугольник сверху
+        if (free.y < placedRect.y) {
+          newRectangles.push(
+            new FreeRectangle(free.x, free.y, free.width, placedRect.y - free.y)
+          );
         }
-      }
-    }
 
-    // Special handling for horizontal pieces (height <= 50)
-    if (tile.height <= 50) {
-      const tallPieces = placedOnSheet.filter((p) => p.height > p.width);
-      if (tallPieces.length > 0) {
-        const totalSetWidth = tallPieces[0].width * 2 + PART_SPACING; // 310*2 + 20 = 640
-
-        if (totalSetWidth <= SHEET_WIDTH) {
-          // Find matching tall piece for this horizontal piece
-          let targetTallPiece = null;
-
-          // Детали 2 и 3 идут под первой высокой деталью
-          if (tile.id === '2' || tile.id === '3') {
-            targetTallPiece = tallPieces[0];
-          }
-          // Детали 6 и 7 идут под второй высокой деталью
-          else if (tile.id === '6' || tile.id === '7') {
-            targetTallPiece = tallPieces[1];
-          }
-
-          if (targetTallPiece) {
-            const existingHorizontalPieces = placedOnSheet.filter(
-              (p) =>
-                p.height <= 50 &&
-                p.x === targetTallPiece.x &&
-                p.y > targetTallPiece.y
-            );
-
-            if (existingHorizontalPieces.length < 2) {
-              return {
-                x: targetTallPiece.x,
-                y:
-                  baseY +
-                  targetTallPiece.height +
-                  PART_SPACING +
-                  existingHorizontalPieces.length *
-                    (tile.height + PART_SPACING),
-                rotated: false,
-              };
-            }
-          }
-        }
-      }
-    }
-
-    // Специальная обработка для узких горизонтальных деталей
-    if (tile.height <= 50 && tile.width <= SHEET_WIDTH) {
-      const existingTilesOnSheet = result.filter(
-        (placed) =>
-          Math.floor(placed.y / (SHEET_HEIGHT + SHEET_GAP)) === currentSheet
-      );
-
-      // Сначала ищем похожую деталь с такими же размерами
-      const similarTile = existingTilesOnSheet.find(
-        (placed) =>
-          placed.width === tile.width &&
-          placed.height === tile.height &&
-          !placed.rotated
-      );
-
-      if (similarTile) {
-        // Пробуем разместить прямо под похожей деталью
-        const newY = similarTile.y + similarTile.height + PART_SPACING;
-        const newX = similarTile.x;
-
-        // Проверяем, что новая позиция в пределах листа
-        if (newY + tile.height <= baseY + SHEET_HEIGHT - PART_SPACING) {
-          // Проверяем пересечения с другими деталями
-          let canPlace = true;
-          for (let other of existingTilesOnSheet) {
-            if (other === similarTile) continue;
-            if (
-              !(
-                newX + tile.width <= other.x ||
-                newX >= other.x + other.width ||
-                newY + tile.height <= other.y ||
-                newY >= other.y + other.height
-              )
-            ) {
-              canPlace = false;
-              break;
-            }
-          }
-          if (canPlace) {
-            return { x: newX, y: newY, rotated: false };
-          }
-        }
-      }
-
-      // Если не удалось разместить под похожей деталью, используем стандартную логику
-      let x = PART_SPACING;
-      let y = baseY + PART_SPACING;
-
-      while (y + tile.height <= baseY + SHEET_HEIGHT - PART_SPACING) {
-        let canPlace = true;
-        for (let other of existingTilesOnSheet) {
-          if (
-            !(
-              x + tile.width <= other.x ||
-              x >= other.x + other.width ||
-              y + tile.height <= other.y ||
-              y >= other.y + other.height
+        // Прямоугольник снизу
+        if (free.y + free.height > placedRect.y + placedRect.height) {
+          newRectangles.push(
+            new FreeRectangle(
+              free.x,
+              placedRect.y + placedRect.height,
+              free.width,
+              free.y + free.height - (placedRect.y + placedRect.height)
             )
-          ) {
-            canPlace = false;
-            break;
-          }
+          );
         }
 
-        if (canPlace) {
-          return { x, y, rotated: false };
+        // Прямоугольник слева
+        if (free.x < placedRect.x) {
+          newRectangles.push(
+            new FreeRectangle(
+              free.x,
+              free.y,
+              placedRect.x - free.x,
+              free.height
+            )
+          );
         }
-        y += SPACING;
+
+        // Прямоугольник справа
+        if (free.x + free.width > placedRect.x + placedRect.width) {
+          newRectangles.push(
+            new FreeRectangle(
+              placedRect.x + placedRect.width,
+              free.y,
+              free.x + free.width - (placedRect.x + placedRect.width),
+              free.height
+            )
+          );
+        }
+      } else {
+        newRectangles.push(free);
       }
     }
 
-    // Если не удалось разместить справа, используем стандартную логику
-    let bestX = null;
-    let bestY = null;
-    let bestRotated = false;
-    let bestScore = Infinity;
-
-    const orientations = [
-      {
-        w: tile.width + PART_SPACING,
-        h: tile.height + PART_SPACING,
-        rotated: false,
-      },
-      {
-        w: tile.height + PART_SPACING,
-        h: tile.width + PART_SPACING,
-        rotated: true,
-      },
-    ];
-
-    for (let orientation of orientations) {
-      if (orientation.h > SHEET_HEIGHT) continue;
-
-      let possibleX = [0];
-      placedOnSheet.forEach((placed) => {
-        possibleX.push(placed.x + placed.width + PART_SPACING);
-      });
-
-      possibleX = [...new Set(possibleX)].sort((a, b) => a - b);
-
-      // Update the y-loop condition to ensure strict boundary check
-      for (
-        let y = baseY;
-        y <= baseY + SHEET_HEIGHT - orientation.h;
-        y += SPACING
-      ) {
-        for (let x of possibleX) {
-          // Add strict boundary check
-          if (
-            x + orientation.w > SHEET_WIDTH ||
-            y + orientation.h > baseY + SHEET_HEIGHT
-          )
-            continue;
-
-          let canPlace = true;
-
-          for (let placed of result) {
-            const placedSheet = Math.floor(
-              placed.y / (SHEET_HEIGHT + SHEET_GAP)
-            );
-            if (placedSheet !== currentSheet) continue;
-
-            if (
-              !(
-                x + orientation.w <= placed.x ||
-                x >= placed.x + placed.width + PART_SPACING ||
-                y + orientation.h <= placed.y ||
-                y >= placed.y + placed.height + PART_SPACING
-              )
-            ) {
-              canPlace = false;
-              break;
-            }
-          }
-
-          if (canPlace) {
-            let score = y * 3 + x * 2;
-
-            if (score < bestScore) {
-              bestScore = score;
-              bestX = x;
-              bestY = y;
-              bestRotated = orientation.rotated;
-            }
-          }
-        }
-      }
-    }
-
-    return { x: bestX, y: bestY, rotated: bestRotated };
+    // Удаляем избыточные прямоугольники
+    return filterRedundantRectangles(newRectangles);
   }
 
-  // Основной цикл размещения
-  while (remainingTiles.length > 0) {
-    const baseY = currentSheet * (SHEET_HEIGHT + SHEET_GAP);
-    let tilesPlaced = false;
+  // Удаляет избыточные прямоугольники
+  function filterRedundantRectangles(rectangles) {
+    const filtered = [];
 
-    for (let i = 0; i < remainingTiles.length; i++) {
-      const tile = remainingTiles[i];
-      const position = tryPlaceTile(tile, baseY);
+    for (let i = 0; i < rectangles.length; i++) {
+      let isRedundant = false;
+      const r1 = rectangles[i];
 
-      if (position.x !== null) {
-        const width = position.rotated ? tile.height : tile.width;
-        const height = position.rotated ? tile.width : tile.height;
+      // Пропускаем слишком маленькие прямоугольники
+      if (r1.width < PART_SPACING || r1.height < PART_SPACING) {
+        continue;
+      }
 
-        result.push({
-          id: tile.id,
-          x: position.x,
-          y: position.y,
-          width: width,
-          height: height,
-          rotated: position.rotated,
-        });
+      for (let j = 0; j < rectangles.length; j++) {
+        if (i === j) continue;
+        const r2 = rectangles[j];
 
-        remainingTiles.splice(i, 1);
-        i--;
-        tilesPlaced = true;
+        if (
+          r2.x <= r1.x &&
+          r2.y <= r1.y &&
+          r2.x + r2.width >= r1.x + r1.width &&
+          r2.y + r2.height >= r1.y + r1.height
+        ) {
+          isRedundant = true;
+          break;
+        }
+      }
+
+      if (!isRedundant) {
+        filtered.push(r1);
       }
     }
 
-    if (!tilesPlaced || remainingTiles.length === 0) {
-      currentSheet++;
+    return filtered;
+  }
+
+  function findBestFit(tile) {
+    let bestRect = null;
+    let bestRotated = false;
+    let bestScore = Infinity;
+    let bestArea = Infinity;
+
+    for (const free of freeRectangles) {
+      // Проверяем обе ориентации
+      const orientations = [
+        { width: tile.width, height: tile.height, rotated: false },
+        { width: tile.height, height: tile.width, rotated: true },
+      ];
+
+      for (const orientation of orientations) {
+        if (
+          orientation.width + PART_SPACING <= free.width &&
+          orientation.height + PART_SPACING <= free.height
+        ) {
+          // Используем комбинированный критерий: близость к краю и минимизация потери площади
+          const score = free.y * 2 + free.x;
+          const area = free.width * free.height;
+
+          if (score < bestScore || (score === bestScore && area < bestArea)) {
+            bestScore = score;
+            bestArea = area;
+            bestRect = free;
+            bestRotated = orientation.rotated;
+          }
+        }
+      }
+    }
+
+    return { rect: bestRect, rotated: bestRotated };
+  }
+
+  // Размещаем каждую деталь
+  for (const tile of tiles) {
+    let placed = false;
+
+    while (!placed) {
+      const { rect, rotated } = findBestFit(tile);
+
+      if (rect) {
+        const width = rotated ? tile.height : tile.width;
+        const height = rotated ? tile.width : tile.height;
+
+        const placedRect = {
+          id: tile.id,
+          x: rect.x,
+          y: rect.y + currentSheet * (SHEET_HEIGHT + SHEET_GAP),
+          width: width,
+          height: height,
+          rotated: rotated,
+        };
+
+        result.push(placedRect);
+
+        // Обновляем список свободных прямоугольников
+        const localPlacedRect = { ...placedRect };
+        localPlacedRect.y -= currentSheet * (SHEET_HEIGHT + SHEET_GAP);
+        freeRectangles = findMaximalRectangles(localPlacedRect);
+
+        placed = true;
+      } else {
+        currentSheet++;
+        freeRectangles = [new FreeRectangle(0, 0, SHEET_WIDTH, SHEET_HEIGHT)];
+      }
     }
   }
 
@@ -397,8 +307,7 @@ function visualizeTiles(tiles) {
 }
 
 function createCutting(inputData) {
-  // Возвращаем результат simpleCutting
-  return simpleCutting(inputData);
+  return guillotineCutting(inputData);
 }
 
 export { createCutting, visualizeTiles };
