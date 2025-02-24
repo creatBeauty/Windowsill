@@ -1,4 +1,4 @@
-import { Map } from '../logic/Map';
+import { Map } from '../logic/13Map';
 
 function mapButton() {
   const openMap = document.getElementById('openMap');
