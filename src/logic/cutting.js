@@ -272,14 +272,20 @@ function visualizeTiles(tiles) {
   Object.entries(sheets).forEach(([sheetNumber, sheetTiles]) => {
     const sheetWrapper = document.createElement('div');
     sheetWrapper.className = 'sheet-wrapper';
+    sheetWrapper.style.display = 'flex';
+    sheetWrapper.style.flexDirection = 'column';
+    sheetWrapper.style.alignItems = 'center'; // Центрирование по горизонтали
 
     const sheetLabel = document.createElement('div');
     sheetLabel.className = 'sheet-label';
     sheetLabel.textContent = `Лист ${parseInt(sheetNumber) + 1}`;
+    sheetLabel.style.textAlign = 'center'; // Центрирование текста
+    sheetLabel.style.marginBottom = '-300px'; // Changed from 20px to 5px
     sheetWrapper.appendChild(sheetLabel);
 
     const sheetContainer = document.createElement('div');
     sheetContainer.className = 'sheet-container';
+    sheetContainer.style.margin = '0 auto'; // Центрирование контейнера
 
     // Вычисляем масштаб для полной ширины
     const containerWidth = window.innerWidth - 80;
