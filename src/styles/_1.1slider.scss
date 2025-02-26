@@ -18,12 +18,14 @@
   mask-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 90%
   );
   -webkit-mask-image: linear-gradient(
     to top,
     rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 90%
   );
   pointer-events: none;
 }
@@ -37,11 +39,12 @@
   justify-content: space-between;
   padding: 0;
   pointer-events: none;
+  z-index: 30;
 
   button {
     pointer-events: auto;
-    background: rgba(0, 0, 0, 0.3);
-    color: #ffffff;
+    background: rgba(0, 0, 0, 0.1);
+    color: #f8edc0;
     border: none;
     width: 50px;
     height: 50px;
@@ -52,9 +55,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 30;
 
     &:hover {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.3);
     }
   }
 }
@@ -68,4 +72,8 @@
   font-weight: 500;
   font-style: normal;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.fas {
+  z-index: 20;
+  pointer-events: none;
 }
