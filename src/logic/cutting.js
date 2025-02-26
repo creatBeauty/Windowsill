@@ -255,6 +255,8 @@ function visualizeTiles(tiles) {
   const sheetsCountDisplay = document.createElement('div');
   sheetsCountDisplay.className = 'sheets-count';
   sheetsCountDisplay.style.marginTop = '20px';
+  sheetsCountDisplay.style.width = '100%';
+  sheetsCountDisplay.style.marginLeft = '10px';
   sheetsCountDisplay.textContent = `Требуется листов: ${SHEETS_COUNT}`;
   cuttingVisualization.appendChild(sheetsCountDisplay);
 
@@ -274,7 +276,7 @@ function visualizeTiles(tiles) {
     sheetWrapper.className = 'sheet-wrapper';
     sheetWrapper.style.display = 'flex';
     sheetWrapper.style.flexDirection = 'column';
-    sheetWrapper.style.alignItems = 'center'; // Центрирование по горизонтали
+    sheetWrapper.style.alignItems = 'flex-start';
 
     const sheetLabel = document.createElement('div');
     sheetLabel.className = 'sheet-label';
@@ -285,7 +287,7 @@ function visualizeTiles(tiles) {
 
     const sheetContainer = document.createElement('div');
     sheetContainer.className = 'sheet-container';
-    sheetContainer.style.margin = '0 auto'; // Центрирование контейнера
+    sheetContainer.style.marginLeft = '5px';
 
     // Вычисляем масштаб для полной ширины
     const containerWidth = window.innerWidth - 80;
