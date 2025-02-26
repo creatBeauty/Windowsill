@@ -8,7 +8,7 @@ const SPACING = 15;
 const SHEET_GAP = 100; // Отступ для деталей
 const SHEET_VISUAL_GAP = -2000; // Визуальный отступ между листами
 const PART_SPACING = 20; // Отступ для деталей
-const SCALE_FACTOR = 3; // Коэффициент масштабирования визуализации
+const SCALE_FACTOR = 4; // Коэффициент масштабирования визуализации
 let SHEETS_COUNT = 0; // Начальное количество листов
 
 function calculateSheetsCount(tiles) {
@@ -280,7 +280,7 @@ function visualizeTiles(tiles) {
     sheetLabel.className = 'sheet-label';
     sheetLabel.textContent = `Лист ${parseInt(sheetNumber) + 1}`;
     sheetLabel.style.textAlign = 'center'; // Центрирование текста
-    sheetLabel.style.marginBottom = '-300px'; // Changed from 20px to 5px
+    sheetLabel.style.marginBottom = '-900px'; // Changed from 20px to 5px
     sheetWrapper.appendChild(sheetLabel);
 
     const sheetContainer = document.createElement('div');
