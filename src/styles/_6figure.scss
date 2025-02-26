@@ -83,3 +83,22 @@ figure {
   border-top: 1px solid #ccc;
   cursor: pointer;
 }
+.figure-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cutting-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.cutting-visualization {
+  width: 100%;
+}
+
+.button2 {
+  align-self: flex-start;
+}

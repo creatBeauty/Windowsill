@@ -64,14 +64,6 @@ function slider() {
     nextButton.addEventListener('click', nextSlide);
     prevButton.addEventListener('click', prevSlide);
 
-    // Автоматическая прокрутка каждые 5 секунд
-    const autoSlide = setInterval(nextSlide, 5000);
-
-    // Останавливаем автопрокрутку при наведении мыши
-    slider.addEventListener('mouseenter', () => {
-      clearInterval(autoSlide);
-    });
-
     // Запускаем первое изображение
     updateImage();
   });

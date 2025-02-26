@@ -54,3 +54,11 @@ html {
   height: 100%;
   overflow: auto;
 }
+
+.textSlider {
+  display: none;
+}
+
+.textSlider.active {
+  display: block;
+}

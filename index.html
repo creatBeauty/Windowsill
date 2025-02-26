@@ -24,29 +24,9 @@
         });
       })();
     </script>
-    <!-- Удалите или закомментируйте этот блок кода -->
-    <!--
-    <script type="text/javascript">
-      window.onload = function () {
-        document
-          .getElementById('contact-form')
-          .addEventListener('submit', function (event) {
-            event.preventDefault();
-            emailjs.sendForm('service_deefxek', 'template_ryqxxtg', this).then(
-              () => {
-                console.log('SUCCESS!');
-              },
-              (error) => {
-                console.log('FAILED...', error);
-              }
-            );
-          });
-      };
-    </script>
-    -->
 
     <!-- Yandex.Metrika counter -->
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       (function (m, e, t, r, i, k, a) {
         m[i] =
           m[i] ||
@@ -104,7 +84,7 @@
           style="position: absolute; left: -9999px"
           alt=""
         /></div
-    ></noscript> -->
+    ></noscript>
     <!-- /Yandex.Metrika counter -->
 
     <style>
@@ -142,12 +122,13 @@
       </div>
 
       <div class="slider">
-        <div class="textSlider">
-          НЕ нужен замерщик,НЕ нужен монтажник.Нужен просто подоконник.
+        <div class="textSlider active">
+          БЕЗ замера-монтажа.Нужен просто подоконник!
         </div>
+        <div class="textSlider">Небольшой заказ? Мы его делаем!</div>
         <div class="buttonForSlider">
-          <button><</button>
-          <button>></button>
+          <button><i class="fas fa-chevron-left"></i></button>
+          <button><i class="fas fa-chevron-right"></i></button>
         </div>
       </div>
 
@@ -568,13 +549,17 @@
     </aside>
 
     <section id="section" class="hidden page">
+      <button class="button2">Вернуться</button>
       <p>Чертеж подоконника</p>
       <img src="./foto/Подоконник2.jpg" alt="" />
     </section>
 
     <figure id="figure" class="hidden page">
-      <div class="cutting-container">
-        <div id="cuttingVisualization" class="cutting-visualization"></div>
+      <div class="figure-content">
+        <button class="button2">Вернуться</button>
+        <div class="cutting-container">
+          <div id="cuttingVisualization" class="cutting-visualization"></div>
+        </div>
       </div>
     </figure>
 

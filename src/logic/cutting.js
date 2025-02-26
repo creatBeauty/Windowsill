@@ -254,7 +254,7 @@ function visualizeTiles(tiles) {
   // Добавляем информацию о количестве листов
   const sheetsCountDisplay = document.createElement('div');
   sheetsCountDisplay.className = 'sheets-count';
-  sheetsCountDisplay.style.marginTop = '0';
+  sheetsCountDisplay.style.marginTop = '20px';
   sheetsCountDisplay.textContent = `Требуется листов: ${SHEETS_COUNT}`;
   cuttingVisualization.appendChild(sheetsCountDisplay);
 
