@@ -5,8 +5,7 @@
 const SHEET_WIDTH = 760;
 const SHEET_HEIGHT = 3660;
 const SPACING = 15;
-const SHEET_GAP = 100; // Отступ для деталей
-const SHEET_VISUAL_GAP = -2000; // Визуальный отступ между листами
+const SHEET_GAP = 20; // Уменьшено до 20px для минимального расстояния между листами
 const PART_SPACING = 20; // Отступ для деталей
 const SCALE_FACTOR = 4; // Коэффициент масштабирования визуализации
 let SHEETS_COUNT = 0; // Начальное количество листов
