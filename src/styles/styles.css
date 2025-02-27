@@ -52,7 +52,7 @@ header .headerBottom .button:hover {
 header .headerContact {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   border-bottom: 2px solid gray;
 }
 header .headerContact .tel {
@@ -630,7 +630,7 @@ footer {
   overflow: hidden;
   width: 30%;
   height: auto;
-  margin: 20px 0;
+  margin: 0px 0;
 }
 
 .slider-image {
@@ -706,6 +706,35 @@ footer {
 }
 .blink-button {
   animation: blink 1s infinite;
+}
+
+.allButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.allButtons1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.allButtons2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.futBtn {
+  width: 100%;
+  height: 30px;
 }
 
 * {
