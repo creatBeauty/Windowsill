@@ -1,31 +1,40 @@
 function guideMain() {
-  const ChooseStoneBtn = document.getElementById('2ChooseStoneBtn');
-  const addtoBasket = document.getElementById('addtoBasket');
-  const goToBasket = document.getElementById('6goToBasket');
+  document.addEventListener('DOMContentLoaded', () => {
+    const chooseStoneBtn = document.getElementById('2ChooseStoneBtn');
+    const addToBasketBtn = document.getElementById('addtoBasket');
+    const goToBasketBtn = document.getElementById('6goToBasket');
 
-  if (!ChooseStoneBtn || !addtoBasket || !goToBasket) {
-    console.error('Не удалось найти один или несколько элементов');
-    return;
-  }
+    // Добавим проверку, что кнопки найдены
+    console.log('Buttons:', {
+      chooseStoneBtn,
+      addToBasketBtn,
+      goToBasketBtn,
+    });
 
-  ChooseStoneBtn.classList.add('pulse-button');
+    // Изначально активна только первая кнопка
+    chooseStoneBtn.classList.add('blink-button');
+    addToBasketBtn.disabled = true;
+    goToBasketBtn.disabled = true;
 
-  ChooseStoneBtn.addEventListener('click', () => {
-    ChooseStoneBtn.classList.remove('pulse-button');
-    addtoBasket.classList.add('pulse-button');
-    goToBasket.classList.remove('pulse-button');
-  });
+    // После нажатия на первую кнопку
+    chooseStoneBtn.addEventListener('click', () => {
+      console.log('First button clicked');
+      chooseStoneBtn.classList.remove('blink-button');
+      addToBasketBtn.classList.add('blink-button');
+      addToBasketBtn.disabled = false;
+    });
 
-  addtoBasket.addEventListener('click', () => {
-    ChooseStoneBtn.classList.remove('pulse-button');
-    addtoBasket.classList.remove('pulse-button');
-    goToBasket.classList.add('pulse-button');
-  });
+    // После нажатия на вторую кнопку
+    addToBasketBtn.addEventListener('click', () => {
+      addToBasketBtn.classList.remove('blink-button');
+      goToBasketBtn.classList.add('blink-button');
+      goToBasketBtn.disabled = false;
+    });
 
-  goToBasket.addEventListener('click', () => {
-    ChooseStoneBtn.classList.remove('pulse-button');
-    addtoBasket.classList.remove('pulse-button');
-    goToBasket.classList.remove('pulse-button');
+    // После нажатия на третью кнопку
+    goToBasketBtn.addEventListener('click', () => {
+      goToBasketBtn.classList.remove('blink-button');
+    });
   });
 }
 

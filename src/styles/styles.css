@@ -693,6 +693,21 @@ footer {
   pointer-events: none;
 }
 
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.blink-button {
+  animation: blink 1s infinite;
+}
+
 * {
   box-sizing: border-box;
   scrollbar-width: none; /* Firefox */
