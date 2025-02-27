@@ -23,6 +23,7 @@ import { COST } from './src/logic/9calculateCostPerStone.js';
 import { _13openMap } from './src/Buttons to Display/13LocationButton.js';
 import { setupTextSlider } from './src/logic/setupTextSlider.js';
 import { guideMain } from './src/logic/guideMain.js';
+import { guideAside } from './src/logic/guideAside.js';
 
 slider();
 _1createOrder();
@@ -42,3 +43,4 @@ COST();
 _13openMap();
 document.addEventListener('DOMContentLoaded', setupTextSlider);
 guideMain();
+guideAside();
