@@ -322,6 +322,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
   font-weight: 400;
   color: rgb(71, 68, 81);
   height: 50px;
