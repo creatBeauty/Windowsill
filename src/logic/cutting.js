@@ -39,7 +39,15 @@ function calculateSheetsCount(tiles) {
 }
 
 function guillotineCutting(tiles) {
-  tiles.sort((a, b) => b.height - a.height);
+  // Изменяем сортировку: сначала по площади, затем по ширине
+  tiles.sort((a, b) => {
+    const areaA = a.width * a.height;
+    const areaB = b.width * b.height;
+    if (areaA === areaB) {
+      return b.width - a.width;
+    }
+    return areaB - areaA;
+  });
 
   class FreeRectangle {
     constructor(x, y, width, height) {
@@ -167,10 +175,12 @@ function guillotineCutting(tiles) {
     let bestArea = Infinity;
 
     for (const free of freeRectangles) {
-      // Проверяем обе ориентации
+      // Проверяем обе ориентации с приоритетом горизонтального размещения
       const orientations = [
-        { width: tile.width, height: tile.height, rotated: false },
+        // Сначала пробуем горизонтальное размещение
         { width: tile.height, height: tile.width, rotated: true },
+        // Затем вертикальное
+        { width: tile.width, height: tile.height, rotated: false },
       ];
 
       for (const orientation of orientations) {
@@ -178,8 +188,8 @@ function guillotineCutting(tiles) {
           orientation.width + PART_SPACING <= free.width &&
           orientation.height + PART_SPACING <= free.height
         ) {
-          // Используем комбинированный критерий: близость к краю и минимизация потери площади
-          const score = free.y * 2 + free.x;
+          // Изменяем критерий оценки: приоритет нижнему размещению
+          const score = free.y + free.x / SHEET_WIDTH;
           const area = free.width * free.height;
 
           if (score < bestScore || (score === bestScore && area < bestArea)) {
@@ -314,6 +324,24 @@ function visualizeTiles(tiles) {
 
 function createCutting(inputData) {
   return guillotineCutting(inputData);
+}
+
+function optimizeForWindowsills(tiles) {
+  // Проверяем возможность поперечного размещения
+  if (
+    tiles.some(
+      (tile) => tile.width <= SHEET_HEIGHT / 2 && tile.height <= SHEET_WIDTH
+    )
+  ) {
+    // Поворачиваем деталь на 90 градусов
+    return tiles.map((tile) => ({
+      ...tile,
+      width: tile.height,
+      height: tile.width,
+      rotated: true,
+    }));
+  }
+  return tiles;
 }
 
 export { createCutting, visualizeTiles };
