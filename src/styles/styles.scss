@@ -37,7 +37,7 @@ html {
 }
 
 .container {
-  max-width: 500px;
+  max-width: $global-width;
   margin: 0 auto;
   padding: 15px;
   position: relative;
@@ -49,7 +49,7 @@ html {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 500px; // Такая же ширина как у контейнера
+  max-width: $global-width;
   display: flex;
   justify-content: center;
   padding: 10px;

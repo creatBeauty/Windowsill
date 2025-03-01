@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 #aside {
-  width: 500px;
+  width: $global-width;
 }
 .aside-windowSills {
   div {

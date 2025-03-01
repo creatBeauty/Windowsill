@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 .slider {
   display: flex;
   justify-content: center;
@@ -32,7 +34,7 @@
 
 .buttonForSlider {
   position: absolute;
-  width: 80vw;
+  width: $global-width;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -64,7 +66,7 @@
 }
 .textSlider {
   position: absolute;
-  width: 500px;
+  width: $global-width;
   top: 5px;
   left: 5px;
   color: rgb(154, 124, 6);

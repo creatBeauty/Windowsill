@@ -259,7 +259,7 @@ main {
   height: auto;
   min-height: 100vh;
   margin: 0 auto;
-  width: 90vw;
+  width: 370px;
   padding-bottom: 120px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 50px repeat(auto-fit, 1fr);
@@ -281,7 +281,7 @@ main {
   color: #fff;
   z-index: 10;
   position: fixed;
-  width: 500px;
+  width: 370px;
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
@@ -353,7 +353,7 @@ main {
   }
 }
 #aside {
-  width: 500px;
+  width: 370px;
 }
 
 .aside-windowSills div {
@@ -488,7 +488,7 @@ main {
   color: rgb(246, 146, 47);
 }
 #section img {
-  width: 500px;
+  width: 370px;
 }
 
 figure {
@@ -651,7 +651,7 @@ footer {
 
 .buttonForSlider {
   position: absolute;
-  width: 80vw;
+  width: 370px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -682,7 +682,7 @@ footer {
 
 .textSlider {
   position: absolute;
-  width: 500px;
+  width: 370px;
   top: 5px;
   left: 5px;
   color: rgb(154, 124, 6);
@@ -768,7 +768,7 @@ html {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 370px;
   margin: 0 auto;
   padding: 15px;
   position: relative;
@@ -780,7 +780,7 @@ html {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 500px;
+  max-width: 370px;
   display: flex;
   justify-content: center;
   padding: 10px;

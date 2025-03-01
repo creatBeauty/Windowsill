@@ -6,7 +6,7 @@
   height: auto;
   min-height: 100vh;
   margin: 0 auto;
-  width: 90vw;
+  width: $global-width;
   padding-bottom: 120px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 50px repeat(auto-fit, 1fr);
@@ -41,7 +41,7 @@
   color: #fff;
   z-index: 10;
   position: fixed;
-  width: 500px;
+  width: $global-width;
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
