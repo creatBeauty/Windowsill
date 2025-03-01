@@ -20,19 +20,36 @@
   }
 }
 html {
-  margin: 15px;
+  margin: 0;
+  padding: 0;
   background-color: $background-color;
 }
 .body {
   margin: 0 auto; /* Центрирование контейнера */
-  max-width: 90%; /* Ограничить ширину контейнера */
+  width: 90%;
+  // width: 90%;
+}
+
+/* Добавьте для корневого элемента */
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 15px;
+  position: relative;
 }
 
 .allButtons {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px; // Такая же ширина как у контейнера
   display: flex;
   justify-content: center;
   padding: 10px;
