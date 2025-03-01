@@ -23,7 +23,7 @@ function _10requestAnInvoice() {
     // Send the form using EmailJS
     emailjs.sendForm('service_deefxek', 'template_ryqxxtg', form).then(
       (response) => {
-        alert('Счет для оплаты отправлен на указанную почту');
+        alert('Счет для оплаты придет на указанную почту');
         console.log('SUCCESS!', response);
         form.reset(); // Clear form after successful submission
       },
