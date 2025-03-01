@@ -7,7 +7,6 @@ function slider() {
       './foto/akril21.jpg', // Исправлен путь (убрана точка)
       './foto/akril31.jpg',
       './foto/akril41.jpg',
-      './foto/akril51.jpg',
     ];
 
     let currentImageIndex = 0;
