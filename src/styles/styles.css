@@ -259,7 +259,7 @@ main {
   height: auto;
   min-height: 100vh;
   margin: 0 auto;
-  width: 360px;
+  width: 500px;
   padding-bottom: 120px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 50px repeat(auto-fit, 1fr);
@@ -281,7 +281,7 @@ main {
   color: #fff;
   z-index: 10;
   position: fixed;
-  width: 360px;
+  width: 500px;
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
@@ -750,6 +750,14 @@ html {
   margin: 0;
   padding: 0;
   background-color: rgb(243, 236, 236);
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .body {
@@ -764,10 +772,12 @@ html {
 }
 
 .container {
-  max-width: 360px;
+  width: 100%;
+  max-width: 500px;
   margin: 0 auto;
   padding: 15px;
   position: relative;
+  overflow-x: hidden;
 }
 
 .allButtons {
@@ -776,12 +786,21 @@ html {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 360px;
+  max-width: 500px;
   display: flex;
   justify-content: center;
   padding: 10px;
   background-color: rgb(243, 236, 236);
   z-index: 1000;
+}
+@media screen and (max-width: 768px) {
+  .allButtons .allButtons1,
+  .allButtons .allButtons2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
 }
 
 .visible-flex {
@@ -808,4 +827,18 @@ html {
 
 .textSlider.active {
   display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  .allButtons {
+    padding: 5px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .grid-header {
+    width: 90%;
+  }
 }/*# sourceMappingURL=styles.css.map */

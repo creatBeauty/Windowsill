@@ -23,6 +23,13 @@ html {
   margin: 0;
   padding: 0;
   background-color: $background-color;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
 .body {
   margin: 0 auto; /* Центрирование контейнера */
@@ -37,10 +44,12 @@ html {
 }
 
 .container {
+  width: 100%;
   max-width: $global-width;
   margin: 0 auto;
   padding: 15px;
   position: relative;
+  overflow-x: hidden;
 }
 
 .allButtons {
@@ -55,6 +64,16 @@ html {
   padding: 10px;
   background-color: $background-color;
   z-index: 1000;
+
+  @media screen and (max-width: 768px) {
+    .allButtons1,
+    .allButtons2 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+  }
 }
 
 .visible-flex {
@@ -80,4 +99,21 @@ html {
 
 .textSlider.active {
   display: block;
+}
+
+// Добавим медиа-запросы
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .allButtons {
+    padding: 5px;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .grid-header {
+    width: 90%; // Уменьшаем ширину заголовка на мобильных
+  }
 }
