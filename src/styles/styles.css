@@ -3,7 +3,7 @@
 header {
   display: flex;
   flex-direction: column;
-  margin-top: -30px;
+  margin-top: -10px;
 }
 header .headerTop h2 {
   display: flex;
@@ -259,7 +259,7 @@ main {
   height: auto;
   min-height: 100vh;
   margin: 0 auto;
-  width: 500px;
+  width: 1000px;
   padding-bottom: 120px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 50px repeat(auto-fit, 1fr);
@@ -281,7 +281,7 @@ main {
   color: #fff;
   z-index: 10;
   position: fixed;
-  width: 500px;
+  width: 1000px;
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
@@ -647,7 +647,7 @@ footer {
 
 .buttonForSlider {
   position: absolute;
-  width: 300px;
+  width: 400px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -773,7 +773,8 @@ body {
 
 .container {
   width: 100%;
-  max-width: 500px;
+  height: 100%;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 15px;
   position: relative;
@@ -786,7 +787,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
   display: flex;
   justify-content: center;
   padding: 10px;

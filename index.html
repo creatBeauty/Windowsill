@@ -597,5 +597,26 @@
     </div>
 
     <script type="module" src="./index.js"></script>
+    <!-- <script>
+      // Проверяем текущий URL
+      if (window.location.href.includes('beautstone.website')) {
+        try {
+          // Пробуем получить доступ к основному домену
+          fetch('http://beautstone.website/', { mode: 'no-cors' })
+            .then((response) => {
+              // Если основной домен доступен, остаемся на нем
+              console.log('Основной домен доступен');
+            })
+            .catch((error) => {
+              // Если основной домен недоступен, перенаправляем на резервный
+              window.location.href =
+                'https://creatbeauty.github.io/Windowsill/';
+            });
+        } catch (error) {
+          // В случае ошибки перенаправляем на резервный домен
+          window.location.href = 'https://creatbeauty.github.io/Windowsill/';
+        }
+      }
+    </script> -->
   </body>
 </html>
