@@ -2,11 +2,11 @@
 
 .button1 {
   width: 98%;
-  height: 40px;
+  height: $button-size;
   background-color: rgb(237, 204, 142);
   border-radius: 10px;
   border: 1px solid gray;
-  font-size: 20px;
+  font-size: $font-size;
   font-weight: 600;
   color: rgb(164, 161, 161);
   margin: 5px;
@@ -17,11 +17,11 @@
 
 .button2 {
   width: 40%;
-  height: 40px;
+  height: $button-size;
   background-color: rgb(237, 204, 142);
   border-radius: 10px;
   border: 1px solid gray;
-  font-size: 15px;
+  font-size: $font-size;
   font-weight: 600;
   color: rgb(164, 161, 161);
   margin: 5px;

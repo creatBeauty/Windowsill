@@ -10,16 +10,17 @@ header {
       display: flex;
       justify-content: center;
       color: $font-color;
-      font-size: 30px;
+      font-size: 60px;
       font-weight: 400;
       margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     h3 {
       display: flex;
       justify-content: center;
       color: $font-color;
-      font-size: 20px;
+      font-size: 50px;
       font-weight: 100;
       margin-top: -30px;
     }
@@ -37,7 +38,7 @@ header {
         h3 {
           color: $minitext-color;
           margin: 0;
-          font-size: 15px;
+          font-size: 30px;
           font-weight: 100;
         }
       }
@@ -67,7 +68,7 @@ header {
     border-bottom: 2px solid gray;
 
     .tel {
-      font-size: 25px;
+      font-size: $button-size;
       font-weight: 550;
       color: $font-color;
       text-decoration: none;
@@ -77,12 +78,12 @@ header {
       display: flex;
 
       .whatsapp {
-        width: 30px;
+        width: $button-size;
         margin-right: 10px;
       }
 
       .telegram {
-        width: 30px;
+        width: $button-size;
       }
     }
   }
@@ -98,8 +99,8 @@ header {
 
   .kryg {
     flex: 0 0 auto;
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 120px;
     border-radius: 30%;
     border: 2px solid rgb(232, 231, 231);
     background-color: rgb(214, 214, 214);
@@ -107,10 +108,14 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 13px;
+    font-size: 20px;
   }
 
   .workTime {
     color: rgb(152, 147, 147);
   }
+}
+.strelka {
+  font-size: 60px;
+  color: grey;
 }

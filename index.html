@@ -126,10 +126,8 @@
         </div>
 
         <div class="slider">
-          <div class="textSlider active">
-            БЕЗ замера-монтажа,нужен просто подоконник? Вам сюда!
-          </div>
-          <div class="textSlider">Небольшой заказ? Мы его сделаем!</div>
+          <div class="textSlider active">Нужен просто подоконник?</div>
+          <div class="textSlider">Мы его сделаем!</div>
           <div class="buttonForSlider">
             <button><i class="fas fa-chevron-left"></i></button>
             <button><i class="fas fa-chevron-right"></i></button>
@@ -141,9 +139,9 @@
           <div class="strelka">></div>
           <div class="kryg">Отправил запрос на счет</div>
           <div class="strelka">></div>
-          <div class="kryg">Оплатил</div>
+          <div class="kryg">Оплатил 50%</div>
           <div class="strelka">></div>
-          <div class="kryg">Забрал заказ</div>
+          <div class="kryg">Забрал заказ (50% остатка)</div>
         </div>
         <div class="workTime">Изготовление 5 рабочих дней</div>
         <button id="1createOrder" class="button1">Создать заказ</button>
@@ -597,26 +595,5 @@
     </div>
 
     <script type="module" src="./index.js"></script>
-    <!-- <script>
-      // Проверяем текущий URL
-      if (window.location.href.includes('beautstone.website')) {
-        try {
-          // Пробуем получить доступ к основному домену
-          fetch('http://beautstone.website/', { mode: 'no-cors' })
-            .then((response) => {
-              // Если основной домен доступен, остаемся на нем
-              console.log('Основной домен доступен');
-            })
-            .catch((error) => {
-              // Если основной домен недоступен, перенаправляем на резервный
-              window.location.href =
-                'https://creatbeauty.github.io/Windowsill/';
-            });
-        } catch (error) {
-          // В случае ошибки перенаправляем на резервный домен
-          window.location.href = 'https://creatbeauty.github.io/Windowsill/';
-        }
-      }
-    </script> -->
   </body>
 </html>

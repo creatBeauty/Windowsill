@@ -16,7 +16,7 @@ function setupTextSlider() {
   showSlide(0);
 
   // Auto-rotate every 6 seconds
-  setInterval(nextSlide, 6000);
+  setInterval(nextSlide, 2000);
 
   // Optional: Add click handlers for the buttons
   const prevButton = document.querySelector(
