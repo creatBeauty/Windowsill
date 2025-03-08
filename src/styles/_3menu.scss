@@ -32,7 +32,7 @@
 }
 .grid-header {
   grid-area: header;
-  font-size: 30px;
+  font-size: 60px;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -111,4 +111,13 @@
   50% {
     border: 3px solid rgba(105, 243, 137, 0.9); /* Увеличение размера кнопки */
   }
+}
+.symmPrice {
+  font-size: 30px;
+}
+.namePrice {
+  font-size: 20px;
+}
+.button-description {
+  font-size: 25px;
 }
