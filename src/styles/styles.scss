@@ -53,29 +53,29 @@ body {
   overflow-x: hidden;
 }
 
-.allButtons {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: $global-width;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  background-color: $background-color;
-  z-index: 1000;
+// .allButtons {
+//   position: fixed;
+//   bottom: 0;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   width: 100%;
+//   max-width: $global-width;
+//   display: flex;
+//   justify-content: center;
+//   padding: 10px;
+//   background-color: $background-color;
+//   z-index: 1000;
 
-  @media screen and (max-width: 768px) {
-    .allButtons1,
-    .allButtons2 {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-    }
-  }
-}
+// @media screen and (max-width: 768px) {
+//   .allButtons1,
+//   .allButtons2 {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     gap: 5px;
+//   }
+// }
+// }
 
 .visible-flex {
   display: flex;

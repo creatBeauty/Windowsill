@@ -47,7 +47,7 @@ main {
       justify-content: end;
       position: relative;
       width: 450px;
-      height: 180px;
+      height: 250px;
       border: 2px solid black;
       color: $minitext-color;
       margin: {
@@ -85,7 +85,7 @@ main {
       top: 15%;
       left: 10%;
       .border-top-text {
-        font-size: $font-size;
+        font-size: 40px;
       }
 
       & option {

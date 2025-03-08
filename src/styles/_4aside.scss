@@ -58,21 +58,29 @@
 
   .cost {
     display: flex;
-    justify-content: space-between;
-    height: 50px;
-    margin-top: 0;
-    margin-bottom: 50px;
+    // flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 20px 0;
+    height: auto;
+    width: 100%;
+    #getCost {
+      width: 300px;
+    }
 
     .cost-info {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
+      margin-right: 20px;
+      width: 200px;
 
       #costOfTheOrder {
         font-size: 50px;
+        margin: 0;
       }
 
       p {
-        margin: 10px;
+        margin: 10px 0;
       }
     }
   }
@@ -96,19 +104,19 @@
     display: flex;
     flex-direction: column;
     margin-top: 0;
-    margin-left: 15px;
+    margin-left: 35px;
     gap: 2px;
 
     .pole {
       width: 90%;
       height: 50px;
-      font-size: $font-size;
+      font-size: 30px;
     }
 
     #messageInfo {
       height: 280px;
       width: 90%;
-      font-size: $font-size;
+      font-size: 40px;
     }
   }
 
