@@ -1,5 +1,36 @@
 @use 'variables' as *;
 
+.container {
+  width: $site-width;
+  height: $site-height;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+// Базовые стили для всех страниц
+.page {
+  width: $site-width;
+  height: $site-height;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+// Только для страниц с дополнительной прокруткой
+#header,
+#main,
+#aside {
+  &:after {
+    content: '';
+    display: block;
+    height: $scroll-padding;
+  }
+
+  height: calc($site-height + $scroll-padding);
+  overflow-y: auto;
+}
+
 .slider {
   display: flex;
   justify-content: center;
