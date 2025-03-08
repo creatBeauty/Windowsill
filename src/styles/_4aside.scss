@@ -114,9 +114,9 @@
     }
 
     #messageInfo {
-      height: 180px;
+      height: 170px;
       width: 90%;
-      font-size: 35px;
+      font-size: 30px;
     }
   }
 
@@ -128,7 +128,7 @@
 }
 
 #request {
-  font-size: $font-size;
+  font-size: 30px;
 }
 
 .outputColorStone {
@@ -140,4 +140,5 @@
 #cutting,
 #drawing {
   height: 80px;
+  font-size: 35px;
 }
