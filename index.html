@@ -97,6 +97,13 @@
           url('./fonts/RubikVinyl-Regular.woff') format('woff');
         font-display: swap;
       }
+
+      @use 'variables' as *;
+
+      #outputSelectedWindowSills,
+      #outputColorStone {
+        font-size: $font-size;
+      }
     </style>
   </head>
   <body>

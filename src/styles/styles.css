@@ -375,10 +375,6 @@ main {
   font-size: 25px;
 }
 
-.aside-windowSills div {
-  margin-top: 0px;
-}
-
 .sectionShoppingCart {
   display: flex;
   flex-direction: column;
@@ -387,7 +383,7 @@ main {
   display: flex;
   justify-content: center;
   font-size: 80px;
-  margin: 0px;
+  margin: 0;
   background: rgb(71, 69, 69);
   color: white;
 }
@@ -395,33 +391,41 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 0px;
+  margin-top: 0;
 }
-.sectionShoppingCart .praceSTT {
+.sectionShoppingCart .aside-stone .aside-color-stone {
+  margin-top: 0;
+  font-size: 30px;
+}
+.sectionShoppingCart .aside-stone .colomnStone {
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+}
+.sectionShoppingCart .aside-stone .praceSTT {
   display: flex;
   justify-content: space-around;
   margin-top: -20px;
+  font-size: 30px;
 }
-.sectionShoppingCart .aside-prise-stone,
-.sectionShoppingCart #priceForList {
+.sectionShoppingCart .aside-stone .aside-prise-stone,
+.sectionShoppingCart .aside-stone #priceForList {
   margin-bottom: 30px;
   font-size: 30px;
   margin-right: 5px;
   color: rgb(161, 159, 159);
 }
-.sectionShoppingCart .aside-color-stone {
-  margin-top: 0px;
-  font-size: 30px;
+.sectionShoppingCart .aside-windowSills div {
+  margin-top: 0;
 }
-.sectionShoppingCart .aside-color-stone .colomnStone {
-  display: flex;
-  flex-direction: column;
+.sectionShoppingCart .aside-windowSills-text {
+  font-size: 30px;
 }
 .sectionShoppingCart .cost {
   display: flex;
   justify-content: space-between;
   height: 50px;
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 50px;
 }
 .sectionShoppingCart .cost .cost-info {
@@ -429,7 +433,7 @@ main {
   justify-content: space-between;
 }
 .sectionShoppingCart .cost .cost-info #costOfTheOrder {
-  font-size: 25px;
+  font-size: 50px;
 }
 .sectionShoppingCart .cost .cost-info p {
   margin: 10px;
@@ -441,17 +445,16 @@ main {
   align-items: center;
 }
 .aside-bottom h3 {
-  margin: 0px;
+  margin: 0;
 }
-.aside-bottom .aside-text-top {
-  color: rgb(71, 68, 81);
-  font-size: 15px;
-  margin-top: -5px;
+.aside-bottom-text {
+  margin: 10px;
+  font-size: 30px;
 }
 .aside-bottom .aside-input {
   display: flex;
   flex-direction: column;
-  margin-top: 0px;
+  margin-top: 0;
   margin-left: 15px;
   gap: 2px;
 }
@@ -463,49 +466,23 @@ main {
 .aside-bottom .aside-input #messageInfo {
   height: 280px;
   width: 90%;
-  font-size: 20px;
+  font-size: 30px;
 }
-
-.asideBottom {
-  display: flex;
-  justify-content: space-around;
-}
-.asideBottom .adress {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  gap: 0px;
-}
-.asideBottom #openMap {
-  border: none;
-  cursor: pointer;
-}
-.asideBottom #openMap :hover {
-  border: 4px solid rgb(233, 175, 175);
-  border-radius: 30px;
-  filter: blur(1px);
-}
-.asideBottom #openMap img {
-  height: 60px;
-  width: 60px;
+.aside-bottom .aside-text-bottom {
+  text-align: center;
+  margin: 0;
+  font-size: 30px;
 }
 
 #request {
   font-size: 30px;
 }
 
-.aside-windowSills-text {
+.outputColorStone {
   font-size: 30px;
 }
 
-.aside-bottom-text {
-  margin: 10px;
-  font-size: 30px;
-}
-
-.aside-text-bottom {
-  text-align: center;
-  margin: 0px;
+#outputSelectedWindowSills {
   font-size: 30px;
 }
 
@@ -758,6 +735,10 @@ footer {
 .fas {
   z-index: 20;
   pointer-events: none;
+}
+
+.workTime {
+  font-size: 30px;
 }
 
 @keyframes blink {
