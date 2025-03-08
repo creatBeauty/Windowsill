@@ -775,7 +775,7 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 720px;
 }
 
 .allButtons1 {
@@ -783,7 +783,7 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 1200px;
+  width: 720px;
 }
 
 .allButtons2 {
@@ -791,7 +791,7 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 1200px;
+  width: 720px;
 }
 
 .futBtn {
@@ -860,7 +860,7 @@ body {
 .container {
   width: 100%;
   height: 100%;
-  max-width: 1200px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 15px;
   position: relative;
