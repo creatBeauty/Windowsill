@@ -7,9 +7,9 @@
   min-height: 100vh;
   margin: 0 auto;
   width: $global-width;
-  padding-bottom: 120px;
+  padding-bottom: 180px;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 50px repeat(auto-fit, 1fr);
+  grid-template-rows: 50px repeat(auto-fit, 1fr) auto;
   overflow-y: scroll !important;
   position: relative;
   padding-top: 80px;
@@ -75,30 +75,31 @@
 }
 
 .confirmColorButton {
+  margin-bottom: 90px;
   grid-area: button;
   font-size: $font-size;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
-  font-weight: 400;
+  font-weight: 600;
   color: $minitext-color;
-  height: 50px;
+  height: 90px;
   border: none;
   animation: pulse 1.5s infinite;
+  width: 400px;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
   position: fixed;
-  bottom: 70px;
+  bottom: 120px;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
-  border-radius: 25px;
-  background-color: transparent;
-  z-index: 1000;
+  z-index: 10;
 
   &:hover {
     animation: none;
     border: 1px solid rgb(236, 161, 11);
-    background-color: rgba(243, 208, 208, 0.5);
+    background-color: rgba(7, 77, 33, 0.5);
   }
 }
 @keyframes pulse {
