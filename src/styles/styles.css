@@ -468,12 +468,12 @@ main {
 .aside-bottom .aside-input .pole {
   width: 90%;
   height: 50px;
-  font-size: 30px;
+  font-size: 35px;
 }
 .aside-bottom .aside-input #messageInfo {
-  height: 280px;
+  height: 180px;
   width: 90%;
-  font-size: 40px;
+  font-size: 35px;
 }
 .aside-bottom .aside-text-bottom {
   text-align: center;
@@ -491,6 +491,11 @@ main {
 
 #outputSelectedWindowSills {
   font-size: 45px;
+}
+
+#cutting,
+#drawing {
+  height: 80px;
 }
 
 #section {
@@ -625,7 +630,7 @@ footer {
 
 .button1 {
   width: 98%;
-  height: 140px;
+  height: 120px;
   background-color: rgb(237, 204, 142);
   border-radius: 10px;
   border: 1px solid gray;
@@ -640,7 +645,7 @@ footer {
 
 .button2 {
   width: 40%;
-  height: 140px;
+  height: 120px;
   background-color: rgb(237, 204, 142);
   border-radius: 10px;
   border: 1px solid gray;
@@ -655,7 +660,7 @@ footer {
 
 .button3 {
   width: 90%;
-  height: 140px;
+  height: 120px;
   background-color: rgb(250, 238, 216);
   border-radius: 10px;
   border: 1px solid gray;
@@ -790,7 +795,7 @@ footer {
 
 .futBtn {
   width: 60%;
-  height: 140px;
+  height: 120px;
   font-size: 30px;
 }
 

@@ -110,13 +110,13 @@
     .pole {
       width: 90%;
       height: 50px;
-      font-size: 30px;
+      font-size: 35px;
     }
 
     #messageInfo {
-      height: 280px;
+      height: 180px;
       width: 90%;
-      font-size: 40px;
+      font-size: 35px;
     }
   }
 
@@ -136,4 +136,8 @@
 }
 #outputSelectedWindowSills {
   font-size: $font-size;
+}
+#cutting,
+#drawing {
+  height: 80px;
 }
