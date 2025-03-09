@@ -27,20 +27,21 @@
     .colomnStone {
       display: flex;
       flex-direction: column;
-      font-size: $font-size;
+      font-size: 35px;
     }
 
     .praceSTT {
       display: flex;
       justify-content: space-around;
       margin-top: -20px;
-      font-size: $font-size;
+      font-size: 35px;
     }
 
     .aside-prise-stone,
     #priceForList {
       margin-bottom: 30px;
-      font-size: $font-size;
+      margin-top: -10px;
+      font-size: 35px;
       margin-right: 5px;
       color: rgb(161, 159, 159);
     }
@@ -104,7 +105,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 0;
-    margin-left: 35px;
+
     gap: 2px;
 
     .pole {
@@ -123,7 +124,8 @@
   .aside-text-bottom {
     text-align: center;
     margin: 0;
-    font-size: $font-size;
+    font-size: 35px;
+    color: $font-color;
   }
 }
 
@@ -135,7 +137,7 @@
   font-size: $font-size;
 }
 #outputSelectedWindowSills {
-  font-size: $font-size;
+  font-size: 35px;
 }
 #cutting,
 #drawing {

@@ -41,7 +41,7 @@
   color: #fff;
   z-index: 10;
   position: fixed;
-  width: $global-width;
+  width: $global-max-width;
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
@@ -75,7 +75,7 @@
 }
 
 .confirmColorButton {
-  margin-bottom: 220px;
+  margin-bottom: 100px;
   grid-area: button;
   font-size: $font-size;
   display: flex;
@@ -86,7 +86,7 @@
   height: 90px;
   border: none;
   animation: pulse 1.5s infinite;
-  width: 400px;
+  width: global-max-width;
   border-radius: 25px;
   background-color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
