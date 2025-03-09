@@ -1,12 +1,12 @@
 @use 'variables' as *;
 
-.container {
-  width: $site-width;
-  height: $site-height;
-  margin: 0 auto;
-  position: relative;
-  box-sizing: border-box;
-}
+// .container {
+//   width: $site-width;
+//   height: $site-height;
+//   margin: 0 auto;
+//   position: relative;
+//   box-sizing: border-box;
+// }
 
 // Базовые стили для всех страниц
 .page {
@@ -40,7 +40,7 @@
   width: 50%;
   height: 800px;
   margin: 0;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .slider-image {
@@ -101,7 +101,7 @@
 .textSlider {
   position: absolute;
   width: 800px;
-  top: -15px;
+  top: -5px;
   left: 50%;
   transform: translateX(-50%);
   color: rgb(198, 178, 96);

@@ -675,14 +675,6 @@ footer {
   background-color: rgb(248, 246, 242);
 }
 
-.container {
-  width: 720px;
-  height: 1600px;
-  margin: 0 auto;
-  position: relative;
-  box-sizing: border-box;
-}
-
 .page {
   width: 720px;
   height: 1600px;
@@ -714,7 +706,7 @@ footer {
   width: 50%;
   height: 800px;
   margin: 0;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .slider-image {
@@ -766,7 +758,7 @@ footer {
 .textSlider {
   position: absolute;
   width: 800px;
-  top: -15px;
+  top: -5px;
   left: 50%;
   transform: translateX(-50%);
   color: rgb(198, 178, 96);
