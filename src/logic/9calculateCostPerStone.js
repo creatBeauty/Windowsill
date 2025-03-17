@@ -47,12 +47,12 @@ function COST() {
           cuttingResult.sheetsCount * state.selectedStone.price * 0.7
       ); //Стоимость материала+Стоимость изготовления+Стоимость доставки+Стоимость клея
       const costDisplay = document.createElement('div');
-      costDisplay.textContent = ` ${totalCost} P`; //Общая стоимость
+      costDisplay.textContent = ` ${totalCost} pуб.`; //Общая стоимость
       costOfTheOrder.appendChild(costDisplay);
 
       // Форматируем текущие значения из формы
       messageInfo.textContent = `Прошу выставить счет за подоконники ${state.basketItems
-        .map((item) => formatDimensions(item))
+        .map((item) => `${formatDimensions(item)}шт.`)
         .join(', ')} ${state.selectedStone.name} ${costDisplay.textContent}`;
     }
   });
