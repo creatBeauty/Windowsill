@@ -1,17 +1,45 @@
 @use 'variables' as *;
-.headerPage {
-  width: 100%;
-  height: 30px;
-  color: $button-font-size-color;
-  background: $button-background;
-  margin-top: 10px;
-  margin-bottom: 10px;
+
+.button1 {
+  width: 98%;
+  height: $button-size;
+  background-color: rgb(237, 204, 142);
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: $font-size;
+  font-weight: 600;
+  color: rgb(164, 161, 161);
+  margin: 5px;
   &:hover {
-    background: $button-background-hover;
-    color: $font-color-white;
+    background-color: rgb(244, 181, 64);
   }
 }
-#getCost {
-  width: 150px;
-  height: 50px;
+
+.button2 {
+  width: 40%;
+  height: $button-size;
+  background-color: rgb(237, 204, 142);
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: $font-size;
+  font-weight: 600;
+  color: rgb(164, 161, 161);
+  margin: 5px;
+  &:hover {
+    background-color: rgb(244, 181, 64);
+  }
+}
+.button3 {
+  width: 90%;
+  height: $button-size;
+  background-color: rgb(250, 238, 216);
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-size: $font-size;
+  font-weight: 200;
+  color: rgb(75, 73, 73);
+  margin: 5px;
+  &:hover {
+    background-color: rgb(248, 246, 242);
+  }
 }

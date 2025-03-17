@@ -1,0 +1,55 @@
+@use 'variables' as *;
+
+// Базовые стили для кнопок
+.futBtn {
+  width: 90%; // исправлено с 90%px
+  height: 80px;
+  font-size: 30px;
+}
+
+// Медиа-запрос для высоких экранов
+@media only screen and (min-height: 1600px) {
+  button.futBtn {
+    font-size: 25px !important;
+    width: 170px !important; // фиксированная ширина для широких экранов
+  }
+}
+
+// Контейнер для всех кнопок
+.allButtons {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: $global-max-width;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  background-color: $background-color;
+  z-index: 1000;
+}
+
+// Ряды кнопок
+.allButtons1,
+.allButtons2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+  padding: 0 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .allButtons1,
+  .allButtons2 {
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .futBtn {
+    width: 100%; // меньшая ширина для мобильных
+  }
+}

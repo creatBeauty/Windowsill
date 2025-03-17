@@ -1,99 +1,176 @@
 @use 'variables' as *;
 
-.grid-2 {
-  display: grid;
-  gap: 10px;
-  height: 100vh;
-  margin: 0 auto; /* Центрирование контейнера */
-  width: 100vw;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 50px repeat(auto-fit, 1fr);
-
-  grid-template-areas:
-    'header header'
-    'div1 div2'
-    'div3 div4'
-    'div5 div6'
-    'div7 div8'
-    'div9 div10'
-    'div11 div12'
-    'div13 div14'
-    'div15 div16'
-    'div17 div18'
-    'div19 div20'
-    'div21 div22'
-    'button button';
+main {
+  display: flex;
+  flex-direction: column;
 }
-.grid-header {
-  grid-area: header;
-  font-size: 30px;
+.calculator {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: #717790;
-  color: #fff;
+  font-size: 60px;
+  color: $font-color;
+  margin-bottom: 10px;
 }
-.grid-element {
+.input {
   display: flex;
-  flex-direction: column-reverse;
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  cursor: pointer;
-  border: none;
-  transition: border 0.3s, filter 0.3s;
-  border-radius: 25px;
-  &:hover {
-    border: 5px solid rgb(251, 222, 165);
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: 0;
+
+  &-size {
+    display: block;
+    margin: {
+      right: 5px;
+      bottom: 0;
+    }
+    width: 180px;
+    height: 80px;
+    color: $minitext-color;
+    font-size: $font-size;
+  }
+  .windowsill {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-right: 0;
+    .length {
+      display: flex;
+      justify-content: end;
+      margin: {
+        bottom: 5px;
+        left: 60px;
+      }
+    }
+    .border {
+      display: flex;
+      justify-content: end;
+      position: relative;
+      width: 450px;
+      height: 250px;
+      border: 2px solid black;
+      color: $minitext-color;
+      margin: {
+        top: 10px;
+        bottom: 10px;
+        left: 10px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .count {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 5px;
+
+      p {
+        height: $input-button-height;
+        color: $minitext-color;
+        font-size: $minitext-font-size;
+        font-weight: 100;
+      }
+
+      &-info {
+        width: $input-button-width;
+        height: $input-button-height;
+        color: $minitext-color;
+        font-size: $font-size;
+      }
+    }
+
+    .border-top {
+      position: absolute;
+      top: 15%;
+      left: 10%;
+      .border-top-text {
+        font-size: 40px;
+      }
+
+      & option {
+        font-size: $font-size;
+      }
+    }
   }
 }
+.calculator-button {
+  display: flex;
+  flex-direction: column;
 
-.selected {
-  border: 4px solid rgb(239, 139, 139); /* Стили для выбранной кнопки */
+  gap: 1px;
+
+  &-classic {
+    background-color: $button-background;
+    font-size: $font-size;
+    color: $minitext-color;
+    margin-top: 10px;
+    border: 2px solid gray;
+    border-radius: 15px;
+  }
+  &-classic:hover {
+    background-color: $button-background-hover;
+    color: $background-color;
+
+    & div {
+      font-size: $font-size;
+      color: $minitext-color;
+    }
+  }
+  .basket {
+    background-color: rgba(110, 193, 245, 0.3);
+    font-size: $font-size;
+    color: $minitext-color;
+    height: 60px;
+    margin-top: 30px;
+    border-radius: 25px;
+    &:hover {
+      background-color: rgb(174, 191, 202);
+      color: $background-color;
+    }
+    & div {
+      color: $minitext-color;
+    }
+  }
 }
+.confirmStone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid gray;
 
-.button-image {
-  width: 100%; /* Занимает всю ширину контейнера */
-  height: auto; /* Высота автоматически подстраивается */
-  object-fit: cover;
-  /* Изображение масштабируется, сохраняя пропорции, обрезая края при необходимости */
+  // p {
+  //   font-size: 20px;
+  // }
 }
-
-.confirmColorButton {
-  grid-area: button;
+.choice {
   font-size: $font-size;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+}
+.stoneName {
+  font-size: $font-size;
+  margin: 0;
+}
 
-  font-weight: 400;
-  color: $minitext-color;
-  height: 50px;
-  width: 200px;
-  border: none;
-  animation: pulse 1.5s infinite;
-  position: fixed;
-  bottom: 20px;
-  width: 100wh;
-  border-radius: 25px;
-  background-color: transparent;
+// Добавлено состояние для главной страницы
+.main-page {
+  header {
+    display: flex;
+  }
 
-  z-index: 1000;
-  &:hover {
-    animation: none; /* Останавливаем анимацию при наведении */
-    border: 1px solid red;
-    background-color: rgba(243, 208, 208, 0.5);
+  // Все остальные элементы скрыты
+  * {
+    display: none;
   }
 }
-@keyframes pulse {
-  0%,
-  100% {
-    background-color: rgba(105, 243, 137, 0.6);
-    transform: scale(1);
-    border: 3px solid rgba(105, 243, 137, 0.6); /* Исходный размер кнопки */
-  }
-  50% {
-    transform: scale(1.05);
-    border: 3px solid rgba(105, 243, 137, 0.9); /* Увеличение размера кнопки */
-  }
+.countIN {
+  display: flex;
+}
+#mainStoneName {
+  font-size: $font-size;
+}
+#thickness {
+  height: 80px;
+  width: 80px;
+  font-size: $font-size;
 }
